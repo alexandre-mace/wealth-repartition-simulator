@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/wealth-repartition-simulator/precache-manifest.155dccb21f362139a0d43506349f6cf6.js"
+  "/wealth-repartition-simulator/precache-manifest.41f9fe3feac0c0a0b2fb72bb37cc76fb.js"
 );
 
 self.addEventListener('message', (event) => {
