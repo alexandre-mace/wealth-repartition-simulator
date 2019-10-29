@@ -94,6 +94,9 @@ code {
 .mt-low {
   margin-top: 1rem !important;
 }
+.custom-tooltip {
+  pointer-events: none;
+}
 .custom-tooltip::after {
   content: "";
   position: absolute;

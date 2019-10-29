@@ -2,7 +2,7 @@
   {
     "name": "Afghanistan",
     "code": "AF",
-    "rnb": "550"
+    "income": 550
   },
   {
     "name": "Åland Islands",
@@ -11,17 +11,16 @@
   {
     "name": "Albania",
     "code": "AL",
-    "rnb": "4860"
+    "income": 4860
   },
   {
     "name": "Algeria",
     "code": "DZ",
-    "rnb": "4060"
+    "income": 4060
   },
   {
     "name": "American Samoa",
-    "code": "AS",
-    "rnb": ""
+    "code": "AS"
   },
   {
     "name": "AndorrA",
@@ -30,7 +29,7 @@
   {
     "name": "Angola",
     "code": "AO",
-    "rnb": "3370"
+    "income": 3370
   },
   {
     "name": "Anguilla",
@@ -43,37 +42,37 @@
   {
     "name": "Antigua and Barbuda",
     "code": "AG",
-    "rnb": "15810"
+    "income": 15810
   },
   {
     "name": "Argentina",
     "code": "AR",
-    "rnb": "12370"
+    "income": 12370
   },
   {
     "name": "Armenia",
     "code": "AM",
-    "rnb": "4230"
+    "income": 4230
   },
   {
     "name": "Aruba",
     "code": "AW",
-    "rnb": "23630"
+    "income": 23630
   },
   {
     "name": "Australia",
     "code": "AU",
-    "rnb": "53190"
+    "income": 53190
   },
   {
     "name": "Austria",
     "code": "AT",
-    "rnb": "49260"
+    "income": 49260
   },
   {
     "name": "Azerbaijan",
     "code": "AZ",
-    "rnb": "4050"
+    "income": 4050
   },
   {
     "name": "Bahamas",
@@ -82,62 +81,62 @@
   {
     "name": "Bahrain",
     "code": "BH",
-    "rnb": "21890"
+    "income": 21890
   },
   {
     "name": "Bangladesh",
     "code": "BD",
-    "rnb": "1750"
+    "income": 1750
   },
   {
     "name": "Barbados",
     "code": "BB",
-    "rnb": "15240"
+    "income": 15240
   },
   {
     "name": "Belarus",
     "code": "BY",
-    "rnb": "5670"
+    "income": 5670
   },
   {
     "name": "Belgium",
     "code": "BE",
-    "rnb": "45340"
+    "income": 45340
   },
   {
     "name": "Belize",
     "code": "BZ",
-    "rnb": "4720"
+    "income": 4720
   },
   {
     "name": "Benin",
     "code": "BJ",
-    "rnb": "870"
+    "income": 870
   },
   {
     "name": "Bermuda",
     "code": "BM",
-    "rnb": "106140"
+    "income": 106140
   },
   {
     "name": "Bhutan",
     "code": "BT",
-    "rnb": "3080"
+    "income": 3080
   },
   {
     "name": "Bolivia",
     "code": "BO",
-    "rnb": "3370"
+    "income": 3370
   },
   {
     "name": "Bosnia and Herzegovina",
     "code": "BA",
-    "rnb": "5690"
+    "income": 5690
   },
   {
     "name": "Botswana",
     "code": "BW",
-    "rnb": "7750"
+    "income": 7750
   },
   {
     "name": "Bouvet Island",
@@ -146,7 +145,7 @@
   {
     "name": "Brazil",
     "code": "BR",
-    "rnb": "9140"
+    "income": 9140
   },
   {
     "name": "British Indian Ocean Territory",
@@ -155,37 +154,37 @@
   {
     "name": "Brunei Darussalam",
     "code": "BN",
-    "rnb": "31020"
+    "income": 31020
   },
   {
     "name": "Bulgaria",
     "code": "BG",
-    "rnb": "8860"
+    "income": 8860
   },
   {
     "name": "Burkina Faso",
     "code": "BF",
-    "rnb": "660"
+    "income": 660
   },
   {
     "name": "Burundi",
     "code": "BI",
-    "rnb": "280"
+    "income": 280
   },
   {
     "name": "Cambodia",
     "code": "KH",
-    "rnb": "1380"
+    "income": 1380
   },
   {
     "name": "Cameroon",
     "code": "CM",
-    "rnb": "1440"
+    "income": 1440
   },
   {
     "name": "Canada",
     "code": "CA",
-    "rnb": "44860"
+    "income": 44860
   },
   {
     "name": "Cape Verde",
@@ -193,28 +192,27 @@
   },
   {
     "name": "Cayman Islands",
-    "code": "KY",
-    "rnb": ""
+    "code": "KY"
   },
   {
     "name": "Central African Republic",
     "code": "CF",
-    "rnb": "480"
+    "income": 480
   },
   {
     "name": "Chad",
     "code": "TD",
-    "rnb": "670"
+    "income": 670
   },
   {
     "name": "Chile",
     "code": "CL",
-    "rnb": "14670"
+    "income": 14670
   },
   {
     "name": "China",
     "code": "CN",
-    "rnb": "9470"
+    "income": 9470
   },
   {
     "name": "Christmas Island",
@@ -227,12 +225,12 @@
   {
     "name": "Colombia",
     "code": "CO",
-    "rnb": "6190"
+    "income": 6190
   },
   {
     "name": "Comoros",
     "code": "KM",
-    "rnb": "1320"
+    "income": 1320
   },
   {
     "name": "Congo",
@@ -249,7 +247,7 @@
   {
     "name": "Costa Rica",
     "code": "CR",
-    "rnb": "11510"
+    "income": 11510
   },
   {
     "name": "Cote D'Ivoire",
@@ -258,47 +256,47 @@
   {
     "name": "Croatia",
     "code": "HR",
-    "rnb": "13830"
+    "income": 13830
   },
   {
     "name": "Cuba",
     "code": "CU",
-    "rnb": "7230"
+    "income": 7230
   },
   {
     "name": "Cyprus",
     "code": "CY",
-    "rnb": "26300"
+    "income": 26300
   },
   {
     "name": "Czech Republic",
     "code": "CZ",
-    "rnb": "20260"
+    "income": 20260
   },
   {
     "name": "Denmark",
     "code": "DK",
-    "rnb": "60190"
+    "income": 60190
   },
   {
     "name": "Djibouti",
     "code": "DJ",
-    "rnb": "2180"
+    "income": 2180
   },
   {
     "name": "Dominica",
     "code": "DM",
-    "rnb": "7210"
+    "income": 7210
   },
   {
     "name": "Dominican Republic",
     "code": "DO",
-    "rnb": "7370"
+    "income": 7370
   },
   {
     "name": "Ecuador",
     "code": "EC",
-    "rnb": "6120"
+    "income": 6120
   },
   {
     "name": "Egypt",
@@ -307,27 +305,27 @@
   {
     "name": "El Salvador",
     "code": "SV",
-    "rnb": "3820"
+    "income": 3820
   },
   {
     "name": "Equatorial Guinea",
     "code": "GQ",
-    "rnb": "7050"
+    "income": 7050
   },
   {
     "name": "Eritrea",
     "code": "ER",
-    "rnb": "720"
+    "income": 720
   },
   {
     "name": "Estonia",
     "code": "EE",
-    "rnb": "20940"
+    "income": 20940
   },
   {
     "name": "Ethiopia",
     "code": "ET",
-    "rnb": "790"
+    "income": 790
   },
   {
     "name": "Falkland Islands (Malvinas)",
@@ -335,23 +333,22 @@
   },
   {
     "name": "Faroe Islands",
-    "code": "FO",
-    "rnb": ""
+    "code": "FO"
   },
   {
     "name": "Fiji",
     "code": "FJ",
-    "rnb": "5860"
+    "income": 5860
   },
   {
     "name": "Finland",
     "code": "FI",
-    "rnb": "47750"
+    "income": 47750
   },
   {
     "name": "France",
     "code": "FR",
-    "rnb": "41080"
+    "income": 41080
   },
   {
     "name": "French Guiana",
@@ -360,7 +357,7 @@
   {
     "name": "French Polynesia",
     "code": "PF",
-    "rnb": "15760"
+    "income": 15760
   },
   {
     "name": "French Southern Territories",
@@ -369,7 +366,7 @@
   {
     "name": "Gabon",
     "code": "GA",
-    "rnb": "6800"
+    "income": 6800
   },
   {
     "name": "Gambia",
@@ -378,37 +375,36 @@
   {
     "name": "Georgia",
     "code": "GE",
-    "rnb": "4130"
+    "income": 4130
   },
   {
     "name": "Germany",
     "code": "DE",
-    "rnb": "47180"
+    "income": 47180
   },
   {
     "name": "Ghana",
     "code": "GH",
-    "rnb": "2130"
+    "income": 2130
   },
   {
     "name": "Gibraltar",
-    "code": "GI",
-    "rnb": ""
+    "code": "GI"
   },
   {
     "name": "Greece",
     "code": "GR",
-    "rnb": "19600"
+    "income": 19600
   },
   {
     "name": "Greenland",
     "code": "GL",
-    "rnb": "34800"
+    "income": 34800
   },
   {
     "name": "Grenada",
     "code": "GD",
-    "rnb": "9780"
+    "income": 9780
   },
   {
     "name": "Guadeloupe",
@@ -416,13 +412,12 @@
   },
   {
     "name": "Guam",
-    "code": "GU",
-    "rnb": ""
+    "code": "GU"
   },
   {
     "name": "Guatemala",
     "code": "GT",
-    "rnb": "4410"
+    "income": 4410
   },
   {
     "name": "Guernsey",
@@ -431,22 +426,22 @@
   {
     "name": "Guinea",
     "code": "GN",
-    "rnb": "830"
+    "income": 830
   },
   {
     "name": "Guinea-Bissau",
     "code": "GW",
-    "rnb": "750"
+    "income": 750
   },
   {
     "name": "Guyana",
     "code": "GY",
-    "rnb": "4760"
+    "income": 4760
   },
   {
     "name": "Haiti",
     "code": "HT",
-    "rnb": "800"
+    "income": 800
   },
   {
     "name": "Heard Island and Mcdonald Islands",
@@ -459,7 +454,7 @@
   {
     "name": "Honduras",
     "code": "HN",
-    "rnb": "2330"
+    "income": 2330
   },
   {
     "name": "Hong Kong",
@@ -468,22 +463,22 @@
   {
     "name": "Hungary",
     "code": "HU",
-    "rnb": "14590"
+    "income": 14590
   },
   {
     "name": "Iceland",
     "code": "IS",
-    "rnb": "67950"
+    "income": 67950
   },
   {
     "name": "India",
     "code": "IN",
-    "rnb": "2020"
+    "income": 2020
   },
   {
     "name": "Indonesia",
     "code": "ID",
-    "rnb": "3840"
+    "income": 3840
   },
   {
     "name": "Iran, Islamic Republic Of",
@@ -492,37 +487,37 @@
   {
     "name": "Iraq",
     "code": "IQ",
-    "rnb": "5030"
+    "income": 5030
   },
   {
     "name": "Ireland",
     "code": "IE",
-    "rnb": "59770"
+    "income": 59770
   },
   {
     "name": "Isle of Man",
     "code": "IM",
-    "rnb": "80340"
+    "income": 80340
   },
   {
     "name": "Israel",
     "code": "IL",
-    "rnb": "40850"
+    "income": 40850
   },
   {
     "name": "Italy",
     "code": "IT",
-    "rnb": "33540"
+    "income": 33540
   },
   {
     "name": "Jamaica",
     "code": "JM",
-    "rnb": "4990"
+    "income": 4990
   },
   {
     "name": "Japan",
     "code": "JP",
-    "rnb": "41340"
+    "income": 41340
   },
   {
     "name": "Jersey",
@@ -531,22 +526,22 @@
   {
     "name": "Jordan",
     "code": "JO",
-    "rnb": "4210"
+    "income": 4210
   },
   {
     "name": "Kazakhstan",
     "code": "KZ",
-    "rnb": "7830"
+    "income": 7830
   },
   {
     "name": "Kenya",
     "code": "KE",
-    "rnb": "1620"
+    "income": 1620
   },
   {
     "name": "Kiribati",
     "code": "KI",
-    "rnb": "3140"
+    "income": 3140
   },
   {
     "name": "Korea, Democratic People'S Republic of",
@@ -559,7 +554,7 @@
   {
     "name": "Kuwait",
     "code": "KW",
-    "rnb": "33690"
+    "income": 33690
   },
   {
     "name": "Kyrgyzstan",
@@ -572,22 +567,22 @@
   {
     "name": "Latvia",
     "code": "LV",
-    "rnb": "16740"
+    "income": 16740
   },
   {
     "name": "Lebanon",
     "code": "LB",
-    "rnb": "7690"
+    "income": 7690
   },
   {
     "name": "Lesotho",
     "code": "LS",
-    "rnb": "1380"
+    "income": 1380
   },
   {
     "name": "Liberia",
     "code": "LR",
-    "rnb": "600"
+    "income": 600
   },
   {
     "name": "Libyan Arab Jamahiriya",
@@ -596,17 +591,17 @@
   {
     "name": "Liechtenstein",
     "code": "LI",
-    "rnb": "116430"
+    "income": 116430
   },
   {
     "name": "Lithuania",
     "code": "LT",
-    "rnb": "17350"
+    "income": 17350
   },
   {
     "name": "Luxembourg",
     "code": "LU",
-    "rnb": "69420"
+    "income": 69420
   },
   {
     "name": "Macao",
@@ -619,37 +614,37 @@
   {
     "name": "Madagascar",
     "code": "MG",
-    "rnb": "440"
+    "income": 440
   },
   {
     "name": "Malawi",
     "code": "MW",
-    "rnb": "360"
+    "income": 360
   },
   {
     "name": "Malaysia",
     "code": "MY",
-    "rnb": "10460"
+    "income": 10460
   },
   {
     "name": "Maldives",
     "code": "MV",
-    "rnb": "9310"
+    "income": 9310
   },
   {
     "name": "Mali",
     "code": "ML",
-    "rnb": "830"
+    "income": 830
   },
   {
     "name": "Malta",
     "code": "MT",
-    "rnb": "26220"
+    "income": 26220
   },
   {
     "name": "Marshall Islands",
     "code": "MH",
-    "rnb": "4740"
+    "income": 4740
   },
   {
     "name": "Martinique",
@@ -658,12 +653,12 @@
   {
     "name": "Mauritania",
     "code": "MR",
-    "rnb": "1190"
+    "income": 1190
   },
   {
     "name": "Mauritius",
     "code": "MU",
-    "rnb": "12050"
+    "income": 12050
   },
   {
     "name": "Mayotte",
@@ -672,7 +667,7 @@
   {
     "name": "Mexico",
     "code": "MX",
-    "rnb": "9180"
+    "income": 9180
   },
   {
     "name": "Micronesia, Federated States of",
@@ -684,13 +679,12 @@
   },
   {
     "name": "Monaco",
-    "code": "MC",
-    "rnb": ""
+    "code": "MC"
   },
   {
     "name": "Mongolia",
     "code": "MN",
-    "rnb": "3580"
+    "income": 3580
   },
   {
     "name": "Montserrat",
@@ -699,37 +693,37 @@
   {
     "name": "Morocco",
     "code": "MA",
-    "rnb": "3090"
+    "income": 3090
   },
   {
     "name": "Mozambique",
     "code": "MZ",
-    "rnb": "440"
+    "income": 440
   },
   {
     "name": "Myanmar",
     "code": "MM",
-    "rnb": "1310"
+    "income": 1310
   },
   {
     "name": "Namibia",
     "code": "NA",
-    "rnb": "5250"
+    "income": 5250
   },
   {
     "name": "Nauru",
     "code": "NR",
-    "rnb": "11240"
+    "income": 11240
   },
   {
     "name": "Nepal",
     "code": "NP",
-    "rnb": "960"
+    "income": 960
   },
   {
     "name": "Netherlands",
     "code": "NL",
-    "rnb": "51260"
+    "income": 51260
   },
   {
     "name": "Netherlands Antilles",
@@ -738,27 +732,27 @@
   {
     "name": "New Caledonia",
     "code": "NC",
-    "rnb": "14020"
+    "income": 14020
   },
   {
     "name": "New Zealand",
     "code": "NZ",
-    "rnb": "40820"
+    "income": 40820
   },
   {
     "name": "Nicaragua",
     "code": "NI",
-    "rnb": "2030"
+    "income": 2030
   },
   {
     "name": "Niger",
     "code": "NE",
-    "rnb": "380"
+    "income": 380
   },
   {
     "name": "Nigeria",
     "code": "NG",
-    "rnb": "1960"
+    "income": 1960
   },
   {
     "name": "Niue",
@@ -770,28 +764,27 @@
   },
   {
     "name": "Northern Mariana Islands",
-    "code": "MP",
-    "rnb": ""
+    "code": "MP"
   },
   {
     "name": "Norway",
     "code": "NO",
-    "rnb": "80790"
+    "income": 80790
   },
   {
     "name": "Oman",
     "code": "OM",
-    "rnb": "15110"
+    "income": 15110
   },
   {
     "name": "Pakistan",
     "code": "PK",
-    "rnb": "1580"
+    "income": 1580
   },
   {
     "name": "Palau",
     "code": "PW",
-    "rnb": "16910"
+    "income": 16910
   },
   {
     "name": "Palestinian Territory, Occupied",
@@ -800,27 +793,27 @@
   {
     "name": "Panama",
     "code": "PA",
-    "rnb": "14370"
+    "income": 14370
   },
   {
     "name": "Papua New Guinea",
     "code": "PG",
-    "rnb": "2530"
+    "income": 2530
   },
   {
     "name": "Paraguay",
     "code": "PY",
-    "rnb": "5680"
+    "income": 5680
   },
   {
     "name": "Peru",
     "code": "PE",
-    "rnb": "6530"
+    "income": 6530
   },
   {
     "name": "Philippines",
     "code": "PH",
-    "rnb": "3830"
+    "income": 3830
   },
   {
     "name": "Pitcairn",
@@ -829,22 +822,22 @@
   {
     "name": "Poland",
     "code": "PL",
-    "rnb": "14150"
+    "income": 14150
   },
   {
     "name": "Portugal",
     "code": "PT",
-    "rnb": "21680"
+    "income": 21680
   },
   {
     "name": "Puerto Rico",
     "code": "PR",
-    "rnb": "21100"
+    "income": 21100
   },
   {
     "name": "Qatar",
     "code": "QA",
-    "rnb": "61190"
+    "income": 61190
   },
   {
     "name": "Reunion",
@@ -853,12 +846,12 @@
   {
     "name": "Romania",
     "code": "RO",
-    "rnb": "11290"
+    "income": 11290
   },
   {
     "name": "Russian Federation",
     "code": "RU",
-    "rnb": "10230"
+    "income": 10230
   },
   {
     "name": "RWANDA",
@@ -887,27 +880,26 @@
   {
     "name": "Samoa",
     "code": "WS",
-    "rnb": "4190"
+    "income": 4190
   },
   {
     "name": "San Marino",
-    "code": "SM",
-    "rnb": ""
+    "code": "SM"
   },
   {
     "name": "Sao Tome and Principe",
     "code": "ST",
-    "rnb": "1890"
+    "income": 1890
   },
   {
     "name": "Saudi Arabia",
     "code": "SA",
-    "rnb": "21540"
+    "income": 21540
   },
   {
     "name": "Senegal",
     "code": "SN",
-    "rnb": "1410"
+    "income": 1410
   },
   {
     "name": "Serbia and Montenegro",
@@ -916,17 +908,17 @@
   {
     "name": "Seychelles",
     "code": "SC",
-    "rnb": "15600"
+    "income": 15600
   },
   {
     "name": "Sierra Leone",
     "code": "SL",
-    "rnb": "500"
+    "income": 500
   },
   {
     "name": "Singapore",
     "code": "SG",
-    "rnb": "58770"
+    "income": 58770
   },
   {
     "name": "Slovakia",
@@ -935,22 +927,22 @@
   {
     "name": "Slovenia",
     "code": "SI",
-    "rnb": "24840"
+    "income": 24840
   },
   {
     "name": "Solomon Islands",
     "code": "SB",
-    "rnb": "2000"
+    "income": 2000
   },
   {
     "name": "Somalia",
     "code": "SO",
-    "rnb": "130"
+    "income": 130
   },
   {
     "name": "South Africa",
     "code": "ZA",
-    "rnb": "5750"
+    "income": 5750
   },
   {
     "name": "South Georgia and the South Sandwich Islands",
@@ -959,22 +951,22 @@
   {
     "name": "Spain",
     "code": "ES",
-    "rnb": "29450"
+    "income": 29450
   },
   {
     "name": "Sri Lanka",
     "code": "LK",
-    "rnb": "4060"
+    "income": 4060
   },
   {
     "name": "Sudan",
     "code": "SD",
-    "rnb": "1560"
+    "income": 1560
   },
   {
     "name": "Suriname",
     "code": "SR",
-    "rnb": "4990"
+    "income": 4990
   },
   {
     "name": "Svalbard and Jan Mayen",
@@ -987,17 +979,17 @@
   {
     "name": "Sweden",
     "code": "SE",
-    "rnb": "55040"
+    "income": 55040
   },
   {
     "name": "Switzerland",
     "code": "CH",
-    "rnb": "83580"
+    "income": 83580
   },
   {
     "name": "Syrian Arab Republic",
     "code": "SY",
-    "rnb": "1820"
+    "income": 1820
   },
   {
     "name": "Taiwan, Province of China",
@@ -1006,7 +998,7 @@
   {
     "name": "Tajikistan",
     "code": "TJ",
-    "rnb": "1010"
+    "income": 1010
   },
   {
     "name": "Tanzania, United Republic of",
@@ -1015,17 +1007,17 @@
   {
     "name": "Thailand",
     "code": "TH",
-    "rnb": "6610"
+    "income": 6610
   },
   {
     "name": "Timor-Leste",
     "code": "TL",
-    "rnb": "1820"
+    "income": 1820
   },
   {
     "name": "Togo",
     "code": "TG",
-    "rnb": "650"
+    "income": 650
   },
   {
     "name": "Tokelau",
@@ -1034,62 +1026,62 @@
   {
     "name": "Tonga",
     "code": "TO",
-    "rnb": "4300"
+    "income": 4300
   },
   {
     "name": "Trinidad and Tobago",
     "code": "TT",
-    "rnb": "16240"
+    "income": 16240
   },
   {
     "name": "Tunisia",
     "code": "TN",
-    "rnb": "3500"
+    "income": 3500
   },
   {
     "name": "Turkey",
     "code": "TR",
-    "rnb": "10380"
+    "income": 10380
   },
   {
     "name": "Turkmenistan",
     "code": "TM",
-    "rnb": "6740"
+    "income": 6740
   },
   {
     "name": "Turks and Caicos Islands",
     "code": "TC",
-    "rnb": "26740"
+    "income": 26740
   },
   {
     "name": "Tuvalu",
     "code": "TV",
-    "rnb": "5430"
+    "income": 5430
   },
   {
     "name": "Uganda",
     "code": "UG",
-    "rnb": "620"
+    "income": 620
   },
   {
     "name": "Ukraine",
     "code": "UA",
-    "rnb": "2660"
+    "income": 2660
   },
   {
     "name": "United Arab Emirates",
     "code": "AE",
-    "rnb": "41010"
+    "income": 41010
   },
   {
     "name": "United Kingdom",
     "code": "GB",
-    "rnb": "41340"
+    "income": 41340
   },
   {
     "name": "United States",
     "code": "US",
-    "rnb": "62850"
+    "income": 62850
   },
   {
     "name": "United States Minor Outlying Islands",
@@ -1098,17 +1090,17 @@
   {
     "name": "Uruguay",
     "code": "UY",
-    "rnb": "15650"
+    "income": 15650
   },
   {
     "name": "Uzbekistan",
     "code": "UZ",
-    "rnb": "2020"
+    "income": 2020
   },
   {
     "name": "Vanuatu",
     "code": "VU",
-    "rnb": "2970"
+    "income": 2970
   },
   {
     "name": "Venezuela",
@@ -1141,11 +1133,11 @@
   {
     "name": "Zambia",
     "code": "ZM",
-    "rnb": "1430"
+    "income": 1430
   },
   {
     "name": "Zimbabwe",
     "code": "ZW",
-    "rnb": "1790"
+    "income": 1790
   }
 ]

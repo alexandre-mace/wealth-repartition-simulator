@@ -3,7 +3,7 @@ import WealthRepartitionSlider from "./components/WealthRepartitionSlider";
 import SvgMap from "./components/Map";
 import {defaultCountryBackgroundColor} from "./domain/constants";
 import {getCssFromCountryData} from "./services/getCssFromCountryData";
-import {averageWorldRnb} from "./services/averageWorldRnbAccessor";
+import {averageWorldIncome} from "./services/averageWorldIncomeAccessor";
 import {Legend} from "./components/Legend";
 import { createMuiTheme, responsiveFontSizes, MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -37,8 +37,8 @@ export const App = () => {
             const country = countries.find(country => country.code === e.target.dataset.id);
 
             let calculatedIncome = false;
-            if (country && country.rnb) {
-                calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(parseInt(country.rnb)), Math.floor(parseInt(averageWorldRnb)), (sliderValue / 100))
+            if (country && country.income) {
+                calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(country.income), Math.floor(averageWorldIncome), (sliderValue / 100))
                 setToolTipDisplayed({
                     code: e.target.dataset.id,
                     relativeElementPosition: e.target.getBoundingClientRect(),
@@ -76,9 +76,9 @@ export const App = () => {
                     }
                     <div className={"title-wrapper"}>
                         <Typography color={"primary"} className="mx-auto page-title" variant="h6" >Wealth repartition simulator</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {parseInt(averageWorldRnb)} $</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].rnb}$</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].rnb}$</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {averageWorldIncome} $</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].income} $</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].income} $</Typography>
                     </div>
                     <Legend/>
                     <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>

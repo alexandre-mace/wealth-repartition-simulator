@@ -1,14 +1,14 @@
 import countries from "../domain/countries";
 
-const averageWorldRnbAccessor = () =>  {
-    let totalWorldRnb = 0;
+const averageWorldIncomeAccessor = () =>  {
+    let totalWorldIncome = 0;
     let totalCountry = 0;
-    const averageWorldRnb = countries.reduce(function (accumulateur, country) {
-        if (country.rnb) {
+    const averageWorldIncome = countries.reduce(function (accumulateur, country) {
+        if (country.income) {
             totalCountry++;
         }
-        return country.rnb ? accumulateur + Math.floor(parseInt(country.rnb)) : accumulateur;
-    }, totalWorldRnb);
-    return averageWorldRnb / totalCountry;
+        return country.income ? accumulateur + Math.floor(country.income) : accumulateur;
+    }, totalWorldIncome);
+    return Math.floor(averageWorldIncome / totalCountry);
 }
-export const averageWorldRnb = averageWorldRnbAccessor();
+export const averageWorldIncome = averageWorldIncomeAccessor();

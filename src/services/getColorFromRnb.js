@@ -1,10 +1,10 @@
-import rnbColorLegends from './../domain/legends/rnbColorLegend'
+import incomeColorLegends from './../domain/legends/incomeColorLegend'
 
-export const getColorFromRnb = (rnb) => {
+export const getColorFromIncome = (income) => {
     let returnedColor = false;
-    for (let i = 0; i < rnbColorLegends.length; i++) {
-        if (parseInt(rnb) >= parseInt(rnbColorLegends[i].rnb)) {
-            returnedColor = rnbColorLegends[i].color;
+    for (let i = 0; i < incomeColorLegends.length; i++) {
+        if (income >= incomeColorLegends[i].income) {
+            returnedColor = incomeColorLegends[i].color;
             break;
         }
     }

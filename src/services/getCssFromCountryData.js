@@ -1,13 +1,13 @@
 import countries from "../domain/countries";
-import {getColorFromRnb} from "./getColorFromRnb";
+import {getColorFromIncome} from "./getColorFromIncome";
 import getPercentageDifferenceBetweenNumbers from "./getPercentageDifferenceBetweenNumbers";
-import {averageWorldRnb} from "./averageWorldRnbAccessor";
+import {averageWorldIncome} from "./averageWorldIncomeAccessor";
 
 export const getCssFromCountryData = (defaultCss, sliderValue) => {
     return  countries.reduce((defaultCss, country) => {
-        if (country.rnb) {
-            const calculatedRnb = getPercentageDifferenceBetweenNumbers(Math.floor(parseInt(country.rnb)), Math.floor(parseInt(averageWorldRnb)), (sliderValue / 100));
-            const calculatedColor = getColorFromRnb(calculatedRnb);
+        if (country.income) {
+            const calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(country.income), Math.floor(averageWorldIncome), (sliderValue / 100));
+            const calculatedColor = getColorFromIncome(calculatedIncome);
             if (calculatedColor) {
                 return {
                     ...defaultCss,
