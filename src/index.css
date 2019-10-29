@@ -23,7 +23,6 @@ code {
 }
 .customBottomPaper {
   padding: 1.5rem 3rem;
-  margin: 0 4rem;
   position: absolute;
   bottom: 1rem;
   width: -webkit-fill-available;
@@ -45,6 +44,12 @@ code {
 }
 .on-boarding svg {
   max-height: 25vh;
+  max-width: 100%;
+}
+@media screen and (max-width: 640px) {
+  .on-boarding svg {
+    max-height: 17vh;
+  }
 }
 .title-wrapper {
   padding: 1rem;
@@ -89,3 +94,15 @@ code {
   margin-top: 1rem !important;
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}

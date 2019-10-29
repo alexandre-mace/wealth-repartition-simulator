@@ -1,10 +1,12 @@
 {
-  "name": "2050-simulation",
+  "homepage": "https://alexandre-mace.github.io/wealth-repartition-simulator",
+  "name": "wealth-repartition-simulator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@svgr/cli": "^4.3.3",
+    "gh-pages": "^2.1.1",
     "material-ui": "^0.20.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -14,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

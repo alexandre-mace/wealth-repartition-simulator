@@ -33,7 +33,7 @@ export default function WealthRepartitionSlider(props) {
     const classes = useStyles();
 
     return (
-        <Paper className={'customBottomPaper'}>
+        <Paper className={'customBottomPaper mx-3 mx-md-5'}>
         <div className={classes.root}>
             <Typography className="text-end" id="discrete-slider-always" gutterBottom>
                 Wealth repartition
