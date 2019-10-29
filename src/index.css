@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+svg {
+  max-height: 70vh;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  min-height: 100vh;
+  left: 0;
+  z-index: -1;
+}
+
+.page-title {
+  padding-top: 2rem;
+}
+.text-center {
+  text-align: center;
+}
+.text-end {
+  text-align: end;
+}
+.my-2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.customPaper {
+  padding: 1.5rem 3rem;
+  margin: 0 4rem;
+  position: absolute;
+  bottom: 2rem;
+  width: -webkit-fill-available;
+}
+.legendItem {
+  width: 20px;
+  height: 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+.legends {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.d-flex {
+  display: flex;
+}
