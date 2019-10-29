@@ -6,14 +6,12 @@ export const Legend = () => {
     return (
         <Paper>
             <div className={"legends"}>
-                <Typography variant="caption" display="block" gutterBottom>
+                <Typography variant="caption" display="block" gutterBottom className={'legend-unity'}>
                     dollars $
                 </Typography>
                 {rnbColorLegends.map((colorLegend, index) => (
-                    <div key={index}>
-                        <div className={"d-flex"}>
-                            <div className={"legendItem"} style={{backgroundColor: colorLegend.color}}></div><span>{colorLegend.rnb}</span>
-                        </div>
+                    <div className={"d-flex legend-item-wrapper"} key={index}>
+                        <div className={"legendItem"} style={{backgroundColor: colorLegend.color}}></div><span>{colorLegend.rnb}</span>
                     </div>
                 ))}
             </div>
