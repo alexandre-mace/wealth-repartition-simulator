@@ -13,7 +13,7 @@ export const OnBoarding = () => {
         <>
             {shouldDisplay &&
             <div className={"on-boarding"}>
-                    <div className="container p-3 text-center pt-4">
+                    <div className="container p-3 text-center pt-4 h-100 d-flex flex-column justify-content-center">
                         <div className="row">
                             <div className="col">
                                 <Typography variant="h4" className={"pb-mid"} gutterBottom>
