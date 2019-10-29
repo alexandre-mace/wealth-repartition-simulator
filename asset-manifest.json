@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wealth-repartition-simulator/static/css/main.4bcee089.chunk.css",
-    "main.js": "/wealth-repartition-simulator/static/js/main.e186ae21.chunk.js",
-    "main.js.map": "/wealth-repartition-simulator/static/js/main.e186ae21.chunk.js.map",
+    "main.js": "/wealth-repartition-simulator/static/js/main.3566388a.chunk.js",
+    "main.js.map": "/wealth-repartition-simulator/static/js/main.3566388a.chunk.js.map",
     "runtime-main.js": "/wealth-repartition-simulator/static/js/runtime-main.207eee4b.js",
     "runtime-main.js.map": "/wealth-repartition-simulator/static/js/runtime-main.207eee4b.js.map",
     "static/js/2.7dc672a3.chunk.js": "/wealth-repartition-simulator/static/js/2.7dc672a3.chunk.js",
     "static/js/2.7dc672a3.chunk.js.map": "/wealth-repartition-simulator/static/js/2.7dc672a3.chunk.js.map",
     "index.html": "/wealth-repartition-simulator/index.html",
-    "precache-manifest.7799b74687850fec5771030661ba8fc7.js": "/wealth-repartition-simulator/precache-manifest.7799b74687850fec5771030661ba8fc7.js",
+    "precache-manifest.dc6ed79df02b494dfb98c32aef6b3663.js": "/wealth-repartition-simulator/precache-manifest.dc6ed79df02b494dfb98c32aef6b3663.js",
     "service-worker.js": "/wealth-repartition-simulator/service-worker.js",
     "static/css/main.4bcee089.chunk.css.map": "/wealth-repartition-simulator/static/css/main.4bcee089.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.207eee4b.js",
     "static/js/2.7dc672a3.chunk.js",
     "static/css/main.4bcee089.chunk.css",
-    "static/js/main.e186ae21.chunk.js"
+    "static/js/main.3566388a.chunk.js"
   ]
 }
