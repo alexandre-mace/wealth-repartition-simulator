@@ -10,8 +10,8 @@ export const Tooltip = (props) => {
         padding: '5px 10px',
         position: 'absolute',
         zIndex: 10,
-        top: (Math.floor(parseInt(props.toolTipDisplayed.relativeElementPosition.top)) - 20 ) + 'px',
-        left: (Math.floor(parseInt(props.toolTipDisplayed.relativeElementPosition.left)) + (Math.floor(parseInt(props.toolTipDisplayed.relativeElementPosition.width)) / 2)) + 35 + 'px',
+        top: (props.mousePosition.y - 30),
+        left: (props.mousePosition.x + 35),
         marginLeft: '-60px',
         transition: 'opacity 0.3s'
     }

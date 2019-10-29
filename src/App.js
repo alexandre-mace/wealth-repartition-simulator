@@ -26,6 +26,7 @@ export const App = () => {
     const [mapCss, setMapCss] = useState({});
     const [sliderValue, setSliderValue] = useState(defaultSliderValue);
     const [toolTipDisplayed, setToolTipDisplayed] = useState(false);
+    const [mousePosition, setMousePosition] = useState(false);
 
     useEffect(() => {
         setMapCss(getCssFromCountryData({}, defaultSliderValue));
@@ -52,20 +53,32 @@ export const App = () => {
         setMapCss(getCssFromCountryData(mapCss, value));
     };
 
+    const handleMove = (event) => {
+        let currentTargetRect = event.currentTarget.getBoundingClientRect();
+        const event_offsetX = event.pageX - currentTargetRect.left;
+        const event_offsetY = event.pageY - currentTargetRect.top;
+        setMousePosition({
+            x: event_offsetX,
+            y: event_offsetY
+        })
+    }
+
     return (
         <>
             <ThemeProvider theme={theme}>
-                <OnBoarding/>
-                {toolTipDisplayed !== false &&
-                    <Tooltip toolTipDisplayed={toolTipDisplayed}/>
-                }
-                <div className={"title-wrapper"}>
-                    <Typography color={"primary"} className="mx-auto page-title" variant="h6">Wealth repartition simulator</Typography>
-                    <Typography variant="subtitle1" className="mx-auto">average world year income : {parseInt(averageWorldRnb)} $</Typography>
+                <div onMouseMove={handleMove}>
+                    <OnBoarding/>
+                    {toolTipDisplayed !== false &&
+                    <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
+                    }
+                    <div className={"title-wrapper"}>
+                        <Typography color={"primary"} className="mx-auto page-title" variant="h6" >Wealth repartition simulator</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">average world year income : {parseInt(averageWorldRnb)} $</Typography>
+                    </div>
+                    <Legend/>
+                    <SvgMap handleOver={handleOver} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
+                    <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
                 </div>
-                <Legend/>
-                <SvgMap handleOver={handleOver} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
-                <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
             </ThemeProvider>
 
         </>
