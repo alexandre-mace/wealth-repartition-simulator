@@ -5,13 +5,13 @@ const lowestAndHighestWorldIncomeAccessor = () =>  {
 
     for (let i = 1, len=countries.length; i < len; i++) {
         if (countries[i].rnb) {
-            let country = countries[i].rnb;
-            console.log(country)
-            min = (country < min) ? country : min;
-            max = (country > max) ? country : max;
+            let country = countries[i];
+            let countryIncome = parseInt(countries[i].rnb);
+            min = (countryIncome < (parseInt(min.rnb) ? parseInt(min.rnb) : 100000 )) ? country : min;
+            max = (countryIncome > (parseInt(max.rnb) ? parseInt(max.rnb) : 0)) ? country : max;
         }
     }
 
     return [min, max];
 }
-export const lowestAndHighestWorldIncomeAccessor1 = lowestAndHighestWorldIncomeAccessor();
+export const lowestAndHighestWorldIncome = lowestAndHighestWorldIncomeAccessor();

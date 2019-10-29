@@ -11,9 +11,8 @@ import {OnBoarding} from "./components/OnBoarding";
 import getPercentageDifferenceBetweenNumbers from "./services/getPercentageDifferenceBetweenNumbers";
 import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
-import {lowestAndHighestWorldIncomeAccessor1} from "./services/lowestAndHighestWorldIncomeAccessor";
+import {lowestAndHighestWorldIncome} from "./services/lowestAndHighestWorldIncomeAccessor";
 
-console.log(lowestAndHighestWorldIncomeAccessor1);
 let theme = createMuiTheme({
     palette: {
         primary: {
@@ -77,7 +76,9 @@ export const App = () => {
                     }
                     <div className={"title-wrapper"}>
                         <Typography color={"primary"} className="mx-auto page-title" variant="h6" >Wealth repartition simulator</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">average world year income : {parseInt(averageWorldRnb)} $</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {parseInt(averageWorldRnb)} $</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].rnb}$</Typography>
+                        <Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].rnb}$</Typography>
                     </div>
                     <Legend/>
                     <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
