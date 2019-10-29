@@ -1,6 +1,7 @@
 import React from 'react'
 
 export const SvgMap = props => (
+    <div className={'map-wrapper'}>
     <svg
         fill="none"
         stroke="#000"
@@ -1488,6 +1489,7 @@ export const SvgMap = props => (
                 data-name="Canary Islands"
             />
     </svg>
+    </div>
 );
 
 export default SvgMap;

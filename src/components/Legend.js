@@ -1,16 +1,22 @@
 import React from 'react';
 import rnbColorLegends from './../domain/legends/rnbColorLegend'
+import {Paper, Typography} from "@material-ui/core";
 
-export default function Legend() {
+export const Legend = () => {
     return (
-        <div className={"legends"}>
-            {rnbColorLegends.map((colorLegend, index) => (
-                <div key={index}>
-                    <div className={"d-flex"}>
-                        <div className={"legendItem"} style={{backgroundColor: colorLegend.color}}></div><span>{colorLegend.rnb}</span>
+        <Paper>
+            <div className={"legends"}>
+                <Typography variant="caption" display="block" gutterBottom>
+                    dollars $
+                </Typography>
+                {rnbColorLegends.map((colorLegend, index) => (
+                    <div key={index}>
+                        <div className={"d-flex"}>
+                            <div className={"legendItem"} style={{backgroundColor: colorLegend.color}}></div><span>{colorLegend.rnb}</span>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        </Paper>
     );
 }
