@@ -11,7 +11,9 @@ import {OnBoarding} from "./components/OnBoarding";
 import getPercentageDifferenceBetweenNumbers from "./services/getPercentageDifferenceBetweenNumbers";
 import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
+import {lowestAndHighestWorldIncomeAccessor1} from "./services/lowestAndHighestWorldIncomeAccessor";
 
+console.log(lowestAndHighestWorldIncomeAccessor1);
 let theme = createMuiTheme({
     palette: {
         primary: {
