@@ -32,20 +32,22 @@ export const App = () => {
         setMapCss(getCssFromCountryData({}, defaultSliderValue));
     }, []);
 
-    const handleOver = (e) => {
-        const country = countries.find(country => country.code === e.target.dataset.id);
+    const handleEnter = (e) => {
+            const country = countries.find(country => country.code === e.target.dataset.id);
 
-        let calculatedIncome = false;
-        if (country && country.rnb) {
-            calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(parseInt(country.rnb)), Math.floor(parseInt(averageWorldRnb)), (sliderValue / 100))
-            setToolTipDisplayed({
-                code: e.target.dataset.id,
-                relativeElementPosition: e.target.getBoundingClientRect(),
-                value: calculatedIncome
-            });
-        }
+            let calculatedIncome = false;
+            if (country && country.rnb) {
+                calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(parseInt(country.rnb)), Math.floor(parseInt(averageWorldRnb)), (sliderValue / 100))
+                setToolTipDisplayed({
+                    code: e.target.dataset.id,
+                    relativeElementPosition: e.target.getBoundingClientRect(),
+                    value: calculatedIncome
+                });
+            }
+    };
 
-
+    const handleLeave = () => {
+        setToolTipDisplayed(false);
     };
 
     const handleSliderChange = (event, value) => {
@@ -76,7 +78,7 @@ export const App = () => {
                         <Typography variant="subtitle1" className="mx-auto">average world year income : {parseInt(averageWorldRnb)} $</Typography>
                     </div>
                     <Legend/>
-                    <SvgMap handleOver={handleOver} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
+                    <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
                     <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
                 </div>
             </ThemeProvider>

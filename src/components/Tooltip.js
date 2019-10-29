@@ -10,7 +10,7 @@ export const Tooltip = (props) => {
         padding: '5px 10px',
         position: 'absolute',
         zIndex: 10,
-        top: (props.mousePosition.y - 30),
+        top: (props.mousePosition.y - 40),
         left: (props.mousePosition.x + 35),
         marginLeft: '-60px',
         transition: 'opacity 0.3s'
