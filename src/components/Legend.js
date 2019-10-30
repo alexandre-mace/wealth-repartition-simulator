@@ -12,7 +12,7 @@ export const Legend = () => {
                 </Typography>
                 {incomeColorLegends.map((colorLegend, index) => (
                     <div className={"d-flex legend-item-wrapper"} key={index}>
-                        <div className={"legendItem"} style={{backgroundColor: colorLegend.color}}></div><span>{colorLegend.income}</span>
+                        <div className={"legendItem"} style={{backgroundColor: 'rgb(' + colorLegend.color + ')'}}></div><span>{colorLegend.income}</span>
                     </div>
                 ))}
                 <div className={"d-flex legend-item-wrapper"}>
