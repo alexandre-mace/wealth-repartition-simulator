@@ -12,6 +12,7 @@ import getPercentageDifferenceBetweenNumbers from "./services/getPercentageDiffe
 import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
 import {lowestAndHighestWorldIncome} from "./services/lowestAndHighestWorldIncomeAccessor";
+import SimpleWealthInfo from "./components/SimpleWealthInfo";
 
 let theme = createMuiTheme({
     palette: {
@@ -74,11 +75,12 @@ export const App = () => {
                     {toolTipDisplayed !== false &&
                     <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
                     }
-                    <div className={"title-wrapper"}>
-                        <Typography color={"primary"} className="mx-auto page-title" variant="h6" >Wealth repartition simulator</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {averageWorldIncome} $</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].income} $</Typography>
-                        <Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].income} $</Typography>
+                    <div className={"title-wrapper d-flex justify-content-between"}>
+                        <Typography color={"primary"} className="page-title" variant="h5" >Wealth repartition simulator</Typography>
+                        {/*<Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {averageWorldIncome} $</Typography>*/}
+                        {/*<Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].income} $</Typography>*/}
+                        {/*<Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].income} $</Typography>*/}
+                        <SimpleWealthInfo/>
                     </div>
                     <Legend/>
                     <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
