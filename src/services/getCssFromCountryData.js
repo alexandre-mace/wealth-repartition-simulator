@@ -9,7 +9,7 @@ export const getCssFromCountryData = (defaultCss, sliderValue) => {
     return  countries.reduce((defaultCss, country) => {
         if (country.income) {
 
-            const percentage = getPercentageFromNumberDifference(130, 116430, country.income);
+            const percentage = getPercentageFromNumberDifference(130, 70000, country.income);
             if (country.code === 'FR') {
             }
             const startColor = getRgbColorDifference([190,0,0], [17,79,0], (Math.floor(percentage) / 100));
