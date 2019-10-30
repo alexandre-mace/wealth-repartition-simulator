@@ -1,49 +1,32 @@
 import countries from "../domain/countries";
-import {getColorFromIncome} from "./getColorFromIncome";
-import getPercentageDifferenceBetweenNumbers from "./getPercentageDifferenceBetweenNumbers";
+import getRelativeColorFromGradient from "./getRelativeColorFromGradient";
+import getRelativeGradientFromIncomePercentage from "./getRelativeGradientFromIncomePercentage";
+import getIncomeFromIncomePercentage from "./getIncomeFromIncomePercentage";
+import getIncomePercentageFromIncome from "./getIncomePercentageFromIncome";
+import {lowestAndHighestWorldIncome} from "./../services/lowestAndHighestWorldIncomeAccessor";
+import {averageIncomeColor} from "../domain/constants";
+import getIncomeWithSharing from "./getIncomeWithSharing";
 import {averageWorldIncome} from "./averageWorldIncomeAccessor";
-import getRgbColorDifference from "./getRgbColorDifference";
-import getPercentageFromNumberDifference from "./getPercentageFromNumberDifference";
-import getNumberFromPercentageDiffenrece from "./getNumberFromPercentageDiffenrece";
+
+const lowestIncome = lowestAndHighestWorldIncome[0].income;
+const highestIncome = lowestAndHighestWorldIncome[1].income;
 
 export const getCssFromCountryData = (defaultCss, sliderValue) => {
     return  countries.reduce((defaultCss, country) => {
         if (country.income) {
-            const percentage = getPercentageFromNumberDifference(130, 116430, country.income);
-            let startColor = false;
-                if (percentage <= 2) {
-                    let stepNumber = getNumberFromPercentageDiffenrece(130, 116430, (2 / 100));
-                    let stepPercentage = getPercentageFromNumberDifference(130, stepNumber, country.income);
-                    startColor = getRgbColorDifference([255,0,0], [255, 165, 0], (Math.floor(stepPercentage) / 100));
-            }
-            if (percentage > 2 && percentage <=7) {
-                let lowStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (2 / 100));
-                let highStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (7 / 100));
-                let stepPercentage = getPercentageFromNumberDifference(lowStepNumber, highStepNumber, country.income);
-                startColor = getRgbColorDifference([255,165,0], [255, 255, 0], (Math.floor(stepPercentage) / 100));
-            }
-            if (percentage > 7 && percentage <= 30) {
-                let lowStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (7 / 100));
-                let highStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (30 / 100));
-                let stepPercentage = getPercentageFromNumberDifference(lowStepNumber, highStepNumber, country.income);
-                startColor = getRgbColorDifference([255,255,0], [159, 255, 128], (Math.floor(stepPercentage) / 100));
-            }
-            if (percentage > 30 && percentage <= 50) {
-                let lowStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (30 / 100));
-                let highStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (50 / 100));
-                let stepPercentage = getPercentageFromNumberDifference(lowStepNumber, highStepNumber, country.income);
-                startColor = getRgbColorDifference([159, 255, 128], [51, 204, 0], (Math.floor(stepPercentage) / 100));
-            }
-            if (percentage > 50) {
-                let lowStepNumber = getNumberFromPercentageDiffenrece(130, 116430, (50 / 100));
-                let highStepNumber = 116430;
-                let stepPercentage = getPercentageFromNumberDifference(lowStepNumber, highStepNumber, country.income);
-                startColor = getRgbColorDifference([51, 204, 0], [17,77,0], (Math.floor(stepPercentage) / 100));
-            }
+            const calculatedIncome = getIncomeWithSharing(country.income, averageWorldIncome, (sliderValue / 100));
 
+            const incomePercentage = getIncomePercentageFromIncome(lowestIncome, highestIncome, calculatedIncome);
+            const relativeGradient = getRelativeGradientFromIncomePercentage(incomePercentage);
+
+            const lowGradientStepIncome = getIncomeFromIncomePercentage(lowestIncome, highestIncome, (relativeGradient.percentage.from / 100));
+            const highGradientStepIncome = getIncomeFromIncomePercentage(lowestIncome, highestIncome, (relativeGradient.percentage.to / 100));
+            const incomePercentageFromGradientScale = getIncomePercentageFromIncome(lowGradientStepIncome, highGradientStepIncome, calculatedIncome);
+
+            const startColor = getRelativeColorFromGradient(relativeGradient.color.from, relativeGradient.color.to, (Math.floor(incomePercentageFromGradientScale) / 100));
             const startColorArray = startColor.split(',');
-            const calculatedColor = getRgbColorDifference(startColorArray, [154,254,1], (sliderValue / 100));
-            // const calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(country.income), Math.floor(averageWorldIncome), (sliderValue / 100));
+            const calculatedColor = getRelativeColorFromGradient(startColorArray, averageIncomeColor, (sliderValue / 100));
+
             if (calculatedColor) {
                 return {
                     ...defaultCss,

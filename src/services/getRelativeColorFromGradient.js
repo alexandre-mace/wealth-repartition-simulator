@@ -1,4 +1,4 @@
-export default function getRgbColorDifference(startColors, endColors, percentage)
+export default function getRelativeColorFromGradient(startColors, endColors, percentage)
 {
     let returnedColorRgb = '';
     startColors.forEach((startColor, index) => {

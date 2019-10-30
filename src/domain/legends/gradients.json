@@ -1,0 +1,30 @@
+[
+  {
+    "percentage": 0,
+    "color": "136,0,0"
+  },
+  {
+    "percentage": 2,
+    "color": "234, 0, 0"
+  },
+  {
+    "percentage": 7,
+    "color": "255, 153, 50"
+  },
+  {
+    "percentage": 15,
+    "color": "255, 255, 50"
+  },
+  {
+    "percentage": 30,
+    "color": "0, 255, 0"
+  },
+  {
+    "percentage": 50,
+    "color": "0, 167, 0"
+  },
+  {
+    "percentage": 100,
+    "color": "0, 60,0"
+  }
+]

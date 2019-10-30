@@ -8,7 +8,7 @@ import {Legend} from "./components/Legend";
 import { createMuiTheme, responsiveFontSizes, MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {OnBoarding} from "./components/OnBoarding";
-import getPercentageDifferenceBetweenNumbers from "./services/getPercentageDifferenceBetweenNumbers";
+import getIncomeWithSharing from "./services/getIncomeWithSharing";
 import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
 import SimpleWealthInfo from "./components/SimpleWealthInfo";
@@ -35,10 +35,9 @@ export const App = () => {
 
     const handleEnter = (e) => {
             const country = countries.find(country => country.code === e.target.dataset.id);
-
             let calculatedIncome = false;
             if (country && country.income) {
-                calculatedIncome = getPercentageDifferenceBetweenNumbers(Math.floor(country.income), Math.floor(averageWorldIncome), (sliderValue / 100))
+                calculatedIncome = getIncomeWithSharing(country.income, averageWorldIncome, (sliderValue / 100));
                 setToolTipDisplayed({
                     code: e.target.dataset.id,
                     relativeElementPosition: e.target.getBoundingClientRect(),
@@ -64,25 +63,22 @@ export const App = () => {
             x: event_offsetX,
             y: event_offsetY
         })
-    }
+    };
 
     return (
         <>
             <ThemeProvider theme={theme}>
+                <OnBoarding/>
                 <div onMouseMove={handleMove}>
-                    <OnBoarding/>
-                    {toolTipDisplayed !== false &&
-                    <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
-                    }
                     <div className={"title-wrapper d-flex justify-content-between"}>
                         <Typography color={"primary"} className="page-title" variant="h4" >Wealth repartition simulator</Typography>
-                        {/*<Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {averageWorldIncome} $</Typography>*/}
-                        {/*<Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].income} $</Typography>*/}
-                        {/*<Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].income} $</Typography>*/}
                         <SimpleWealthInfo/>
                     </div>
+
                     <Legend/>
                     <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
+                    <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
+
                     <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
                 </div>
             </ThemeProvider>

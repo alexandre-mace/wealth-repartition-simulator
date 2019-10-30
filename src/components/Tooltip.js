@@ -16,6 +16,10 @@ export const Tooltip = (props) => {
         transition: 'opacity 0.3s'
     }
     return (
-        <div className={'custom-tooltip'} style={style}>{props.toolTipDisplayed.value}</div>
+        <>
+            {props.toolTipDisplayed !== false &&
+            <div className={'custom-tooltip'} style={style}>{props.toolTipDisplayed.value}</div>
+            }
+        </>
     )
 };

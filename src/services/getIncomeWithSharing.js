@@ -1,4 +1,4 @@
-export default function getPercentageDifferenceBetweenNumbers(start, end, percentage)
+export default function getIncomeWithSharing(start, end, percentage)
 {
     let returnedNumber = false;
     if (start < end) {
