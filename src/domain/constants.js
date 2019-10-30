@@ -1,1 +1,1 @@
-export const defaultCountryBackgroundColor = [242, 242, 242];
+export const defaultCountryBackgroundColor = 'rgba(224, 224, 224, 0.2)';

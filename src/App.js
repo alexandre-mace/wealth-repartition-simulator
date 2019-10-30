@@ -11,13 +11,12 @@ import {OnBoarding} from "./components/OnBoarding";
 import getPercentageDifferenceBetweenNumbers from "./services/getPercentageDifferenceBetweenNumbers";
 import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
-import {lowestAndHighestWorldIncome} from "./services/lowestAndHighestWorldIncomeAccessor";
 import SimpleWealthInfo from "./components/SimpleWealthInfo";
 
 let theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#009688'
+            main: '#38d39f'
         }
     },
 });
@@ -76,7 +75,7 @@ export const App = () => {
                     <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
                     }
                     <div className={"title-wrapper d-flex justify-content-between"}>
-                        <Typography color={"primary"} className="page-title" variant="h5" >Wealth repartition simulator</Typography>
+                        <Typography color={"primary"} className="page-title" variant="h4" >Wealth repartition simulator</Typography>
                         {/*<Typography variant="subtitle1" className="mx-auto">Average world year income per habitant : {averageWorldIncome} $</Typography>*/}
                         {/*<Typography variant="subtitle1" className="mx-auto">Lowest year income per habitant : {lowestAndHighestWorldIncome[0].name} {lowestAndHighestWorldIncome[0].income} $</Typography>*/}
                         {/*<Typography variant="subtitle1" className="mx-auto">Highest year income per habitant : {lowestAndHighestWorldIncome[1].name} {lowestAndHighestWorldIncome[1].income} $</Typography>*/}

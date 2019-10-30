@@ -8,6 +8,7 @@
     "@svgr/cli": "^4.3.3",
     "gh-pages": "^2.1.1",
     "material-ui": "^0.20.2",
+    "material-ui-popup-state": "^1.4.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0"

@@ -8,6 +8,10 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {lowestAndHighestWorldIncome} from "./../services/lowestAndHighestWorldIncomeAccessor";
 import {averageWorldIncome} from "./../services/averageWorldIncomeAccessor";
+import Button from '@material-ui/core/Button';
+import Popper from '@material-ui/core/Popper';
+import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles({
     root: {
@@ -33,27 +37,43 @@ export default function SimpleWealthInfo() {
     const classes = useStyles();
 
     return (
-        <Paper className={classes.root}>
-            <Table className={classes.table} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Type</TableCell>
-                        <TableCell align={"right"} >Country name</TableCell>
-                        <TableCell align="right">year income per habitant&nbsp;($)</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map(row => (
-                        <TableRow key={row.name}>
-                            <TableCell component="th" scope="row">
-                                {row.type}
-                            </TableCell>
-                            <TableCell align="right">{row.name}</TableCell>
-                            <TableCell align="right">{row.income}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </Paper>
+        <PopupState variant="popper" popupId="demo-popup-popper">
+            {popupState => (
+                <div className={"z-index-mid"}>
+                    <Button variant="contained" {...bindToggle(popupState)}>
+                        EXTRA INFO
+                    </Button>
+                    <Popper {...bindPopper(popupState)} transition>
+                        {({ TransitionProps }) => (
+                            <Fade {...TransitionProps} timeout={350}>
+                                <Paper className={classes.root}>
+                                    <Table className={classes.table} aria-label="simple table">
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell>Type</TableCell>
+                                                <TableCell align={"right"} >Country name</TableCell>
+                                                <TableCell align="right">year income per habitant&nbsp;($)</TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {rows.map(row => (
+                                                <TableRow key={row.name}>
+                                                    <TableCell component="th" scope="row">
+                                                        {row.type}
+                                                    </TableCell>
+                                                    <TableCell align="right">{row.name}</TableCell>
+                                                    <TableCell align="right">{row.income}</TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </Paper>
+                            </Fade>
+                        )}
+                    </Popper>
+                </div>
+            )}
+        </PopupState>
+
     );
 }

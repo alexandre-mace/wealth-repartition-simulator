@@ -1,6 +1,7 @@
 import React from 'react';
 import incomeColorLegends from './../domain/legends/incomeColorLegend'
 import {Paper, Typography} from "@material-ui/core";
+import {defaultCountryBackgroundColor} from "../domain/constants";
 
 export const Legend = () => {
     return (
@@ -14,6 +15,9 @@ export const Legend = () => {
                         <div className={"legendItem"} style={{backgroundColor: colorLegend.color}}></div><span>{colorLegend.income}</span>
                     </div>
                 ))}
+                <div className={"d-flex legend-item-wrapper"}>
+                    <div className={"legendItem"} style={{backgroundColor: defaultCountryBackgroundColor}}></div><span>No data</span>
+                </div>
             </div>
         </Paper>
     );
