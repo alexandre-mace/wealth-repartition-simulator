@@ -1,34 +1,26 @@
 [
   {
-    "income": 70000,
-    "color": "17,79,0"
+    "income": 70000
   },
   {
-    "income": 50000,
-    "color": "25,115,0"
+    "income": 50000
   },
   {
-    "income": 30000,
-    "color": "43,199,1"
+    "income": 30000
   },
   {
-    "income": 10000,
-    "color": "154,254,1"
+    "income": 10000
   },
   {
-    "income": 5000,
-    "color": "254,219,1"
+    "income": 5000
   },
   {
-    "income": 3000,
-    "color": "242,140,35"
+    "income": 3000
   },
   {
-    "income": 1000,
-    "color": "254,84,1"
+    "income": 1000
   },
   {
-    "income": 500,
-    "color": "190,0,0"
+    "income": 500
   }
 ]

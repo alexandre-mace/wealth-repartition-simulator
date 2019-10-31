@@ -1,10 +1,11 @@
 import React from 'react';
-import steps from './../domain/legends/steps'
 import gradients from './../domain/legends/gradients'
 import {Typography} from "@material-ui/core";
 import {defaultCountryBackgroundColor} from "../domain/constants";
 import getIncomeFromIncomePercentage from "../services/getIncomeFromIncomePercentage";
 import {lowestAndHighestWorldIncome} from "../services/lowestAndHighestWorldIncomeAccessor";
+import steps from './../domain/legends/steps'
+import getColorFromIncome from "../services/getColorFromIncome";
 
 export const Legend = (props) => {
     const legendGradients = gradients.slice().reverse();
@@ -41,7 +42,7 @@ export const Legend = (props) => {
                     <>
                 {steps.map((colorLegend, index) => (
                     <div className={"d-flex legend-item-wrapper"} key={index}>
-                        <div className={"legend-item"} style={{backgroundColor: 'rgb(' + colorLegend.color + ')'}}></div><span>{colorLegend.income}</span>
+                        <div className={"legend-item"} style={{backgroundColor: 'rgb(' + getColorFromIncome(colorLegend.income) + ')'}}></div><span>{colorLegend.income}</span>
                     </div>
                 ))}
                 </>
