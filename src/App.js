@@ -30,10 +30,10 @@ export const App = () => {
     const [sliderValue, setSliderValue] = useState(defaultSliderValue);
     const [toolTipDisplayed, setToolTipDisplayed] = useState(false);
     const [mousePosition, setMousePosition] = useState(false);
-    const [colorModeSwitcher, setColorModeSwitcher] = React.useState({checkedStep: true});
+    const [colorModeSwitcher, setColorModeSwitcher] = React.useState({checkedStep: false});
 
     useEffect(() => {
-        setMapCss(getCssFromCountryData({}, defaultSliderValue, true));
+        setMapCss(getCssFromCountryData({}, defaultSliderValue, false));
     }, []);
 
     const handleEnter = (e) => {
@@ -71,6 +71,7 @@ export const App = () => {
 
     const handleColorModeChange = name => event => {
         setColorModeSwitcher({ ...colorModeSwitcher, [name]: event.target.checked });
+        setMapCss(getCssFromCountryData(mapCss, sliderValue, colorModeSwitcher.checkedStep));
     };
 
     return (
