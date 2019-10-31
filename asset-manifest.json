@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/wealth-repartition-simulator/static/css/main.5d613c6c.chunk.css",
-    "main.js": "/wealth-repartition-simulator/static/js/main.5023906b.chunk.js",
-    "main.js.map": "/wealth-repartition-simulator/static/js/main.5023906b.chunk.js.map",
+    "main.css": "/wealth-repartition-simulator/static/css/main.0f14cb8c.chunk.css",
+    "main.js": "/wealth-repartition-simulator/static/js/main.fd66ebc3.chunk.js",
+    "main.js.map": "/wealth-repartition-simulator/static/js/main.fd66ebc3.chunk.js.map",
     "runtime-main.js": "/wealth-repartition-simulator/static/js/runtime-main.207eee4b.js",
     "runtime-main.js.map": "/wealth-repartition-simulator/static/js/runtime-main.207eee4b.js.map",
-    "static/js/2.4e677ae8.chunk.js": "/wealth-repartition-simulator/static/js/2.4e677ae8.chunk.js",
-    "static/js/2.4e677ae8.chunk.js.map": "/wealth-repartition-simulator/static/js/2.4e677ae8.chunk.js.map",
+    "static/js/2.1505b033.chunk.js": "/wealth-repartition-simulator/static/js/2.1505b033.chunk.js",
+    "static/js/2.1505b033.chunk.js.map": "/wealth-repartition-simulator/static/js/2.1505b033.chunk.js.map",
     "index.html": "/wealth-repartition-simulator/index.html",
-    "precache-manifest.d99371f8b0d41d5eabf4396773fa6ebf.js": "/wealth-repartition-simulator/precache-manifest.d99371f8b0d41d5eabf4396773fa6ebf.js",
+    "precache-manifest.44e014c208e8f5aa9f7350dbb5bb5fef.js": "/wealth-repartition-simulator/precache-manifest.44e014c208e8f5aa9f7350dbb5bb5fef.js",
     "service-worker.js": "/wealth-repartition-simulator/service-worker.js",
-    "static/css/main.5d613c6c.chunk.css.map": "/wealth-repartition-simulator/static/css/main.5d613c6c.chunk.css.map"
+    "static/css/main.0f14cb8c.chunk.css.map": "/wealth-repartition-simulator/static/css/main.0f14cb8c.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.207eee4b.js",
-    "static/js/2.4e677ae8.chunk.js",
-    "static/css/main.5d613c6c.chunk.css",
-    "static/js/main.5023906b.chunk.js"
+    "static/js/2.1505b033.chunk.js",
+    "static/css/main.0f14cb8c.chunk.css",
+    "static/js/main.fd66ebc3.chunk.js"
   ]
 }
