@@ -1,10 +1,10 @@
-import incomeColorLegends from './../domain/legends/incomeColorLegend'
+import steps from './../domain/legends/steps'
 
 export const getColorFromIncome = (income) => {
     let returnedColor = "190,0,0";
-    for (let i = 0; i < incomeColorLegends.length; i++) {
-        if (income >= incomeColorLegends[i].income) {
-            returnedColor = incomeColorLegends[i].color;
+    for (let i = 0; i < steps.length; i++) {
+        if (income >= steps[i].income) {
+            returnedColor = steps[i].color;
             break;
         }
     }

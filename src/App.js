@@ -13,6 +13,7 @@ import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
 import SimpleWealthInfo from "./components/SimpleWealthInfo";
 import {PreventMobilePortrait} from "./components/PreventMobilePortrait";
+import ColorModeSwitcher from "./components/ColorModeSwitcher";
 
 let theme = createMuiTheme({
     palette: {
@@ -29,9 +30,10 @@ export const App = () => {
     const [sliderValue, setSliderValue] = useState(defaultSliderValue);
     const [toolTipDisplayed, setToolTipDisplayed] = useState(false);
     const [mousePosition, setMousePosition] = useState(false);
+    const [colorModeSwitcher, setColorModeSwitcher] = React.useState({checkedStep: true});
 
     useEffect(() => {
-        setMapCss(getCssFromCountryData({}, defaultSliderValue));
+        setMapCss(getCssFromCountryData({}, defaultSliderValue, true));
     }, []);
 
     const handleEnter = (e) => {
@@ -54,7 +56,7 @@ export const App = () => {
 
     const handleSliderChange = (event, value) => {
         setSliderValue(value);
-        setMapCss(getCssFromCountryData(mapCss, value));
+        setMapCss(getCssFromCountryData(mapCss, value, colorModeSwitcher.checkedStep));
     };
 
     const handleMove = (event) => {
@@ -65,6 +67,10 @@ export const App = () => {
             x: event_offsetX,
             y: event_offsetY
         })
+    };
+
+    const handleColorModeChange = name => event => {
+        setColorModeSwitcher({ ...colorModeSwitcher, [name]: event.target.checked });
     };
 
     return (
@@ -80,9 +86,11 @@ export const App = () => {
                         <SimpleWealthInfo/>
                     </div>
 
-                    <Legend/>
+                    <Legend colorModeSwitcher={colorModeSwitcher} />
                     <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
                     <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
+
+                    <ColorModeSwitcher colorModeSwitcher={colorModeSwitcher} handleColorModeChange={handleColorModeChange}/>
 
                     <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
                 </div>

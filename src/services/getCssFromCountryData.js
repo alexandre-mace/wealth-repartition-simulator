@@ -7,25 +7,34 @@ import {lowestAndHighestWorldIncome} from "./../services/lowestAndHighestWorldIn
 import {averageIncomeColor} from "../domain/constants";
 import getIncomeWithSharing from "./getIncomeWithSharing";
 import {averageWorldIncome} from "./averageWorldIncomeAccessor";
+import {getColorFromIncome} from "./getColorFromIncome";
 
 const lowestIncome = lowestAndHighestWorldIncome[0].income;
 const highestIncome = lowestAndHighestWorldIncome[1].income;
 
-export const getCssFromCountryData = (defaultCss, sliderValue) => {
+export const getCssFromCountryData = (defaultCss, sliderValue, progressiveMode) => {
     return  countries.reduce((defaultCss, country) => {
         if (country.income) {
             const calculatedIncome = getIncomeWithSharing(country.income, averageWorldIncome, (sliderValue / 100));
 
-            const incomePercentage = getIncomePercentageFromIncome(lowestIncome, highestIncome, calculatedIncome);
-            const relativeGradient = getRelativeGradientFromIncomePercentage(incomePercentage);
+            let calculatedColor = false;
 
-            const lowGradientStepIncome = getIncomeFromIncomePercentage(lowestIncome, highestIncome, (relativeGradient.percentage.from / 100));
-            const highGradientStepIncome = getIncomeFromIncomePercentage(lowestIncome, highestIncome, (relativeGradient.percentage.to / 100));
-            const incomePercentageFromGradientScale = getIncomePercentageFromIncome(lowGradientStepIncome, highGradientStepIncome, calculatedIncome);
+            if (progressiveMode) {
+                const incomePercentage = getIncomePercentageFromIncome(lowestIncome, highestIncome, calculatedIncome);
+                const relativeGradient = getRelativeGradientFromIncomePercentage(incomePercentage);
 
-            const startColor = getRelativeColorFromGradient(relativeGradient.color.from, relativeGradient.color.to, (Math.floor(incomePercentageFromGradientScale) / 100));
-            const startColorArray = startColor.split(',');
-            const calculatedColor = getRelativeColorFromGradient(startColorArray, averageIncomeColor, (sliderValue / 100));
+                const lowGradientStepIncome = getIncomeFromIncomePercentage(lowestIncome, highestIncome, (relativeGradient.percentage.from / 100));
+                const highGradientStepIncome = getIncomeFromIncomePercentage(lowestIncome, highestIncome, (relativeGradient.percentage.to / 100));
+                const incomePercentageFromGradientScale = getIncomePercentageFromIncome(lowGradientStepIncome, highGradientStepIncome, calculatedIncome);
+
+                const startColor = getRelativeColorFromGradient(relativeGradient.color.from, relativeGradient.color.to, (Math.floor(incomePercentageFromGradientScale) / 100));
+                const startColorArray = startColor.split(',');
+                calculatedColor = getRelativeColorFromGradient(startColorArray, averageIncomeColor, (sliderValue / 100));
+            }
+
+            if (!progressiveMode) {
+                calculatedColor = getColorFromIncome(calculatedIncome);
+            }
 
             if (calculatedColor) {
                 return {
