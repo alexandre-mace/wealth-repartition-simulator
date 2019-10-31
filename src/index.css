@@ -163,6 +163,10 @@ code {
   }
 }
 @media screen and (min-width: 320px) and (max-width: 960px) {
+  .map-wrapper svg {
+    min-height: 80vh;
+    top: 10vh;
+  }
   .on-boarding {
     height: unset;
   }
@@ -174,6 +178,9 @@ code {
   }
   .customBottomPaper {
     padding-bottom: 0;
+  }
+  .legend-items-wrapper {
+    font-size: 0.8rem;
   }
   .legend-items-wrapper .gradient-legend-item-wrapper:nth-child(even) span {
     display: none
