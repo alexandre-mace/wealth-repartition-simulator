@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "83c34fee6c952909e1b78e91d49fd5ba",
+    "revision": "0b116be00b49d7966eb588be702bda6e",
     "url": "/wealth-repartition-simulator/index.html"
   },
   {
-    "revision": "03cebf2bed804d13d879",
+    "revision": "ba919d378f65f297fe5e",
     "url": "/wealth-repartition-simulator/static/css/main.2fd8e6d6.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wealth-repartition-simulator/static/js/2.50a7729d.chunk.js"
   },
   {
-    "revision": "03cebf2bed804d13d879",
-    "url": "/wealth-repartition-simulator/static/js/main.ba92c7b2.chunk.js"
+    "revision": "ba919d378f65f297fe5e",
+    "url": "/wealth-repartition-simulator/static/js/main.40d17d69.chunk.js"
   },
   {
     "revision": "166e3a5edd655c3fc365",
