@@ -30,7 +30,7 @@ code {
   padding: 1.5rem 3rem;
   position: absolute;
   bottom: 1rem;
-  z-index: 10;
+  z-index: 2;
   width: -webkit-fill-available;
   background-color: transparent !important;
   color: white !important;
@@ -48,7 +48,7 @@ code {
   margin: 0;
   background-color: #3f3d56;
   color: white;
-  z-index: 1000;
+  z-index: 3;
 }
 .on-boarding-content {
   padding: 3rem;
@@ -113,7 +113,7 @@ code {
   margin-bottom: 1rem;
 }
 .down-small {
-  transform: translateY(6px);
+  transform: translateY(10px);
 }
 .pb-mid {
   padding-bottom: 2rem;
@@ -123,6 +123,9 @@ code {
 }
 .mt-low {
   margin-top: 1rem !important;
+}
+.z-index-mid {
+  z-index: 1;
 }
 .custom-tooltip {
   pointer-events: none;
@@ -137,39 +140,40 @@ code {
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
-
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-  .map-section {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    height: 100vw;
-    position: absolute;
-    top: 100%;
-    left: 0;
+.prevent-mobile-portrait {
+  display: none;
+  background-color: black;
+  color: white;
+}
+.prevent-mobile-portrait p {
+  margin: auto;
+}
+@media screen and (min-width: 320px) and (max-width: 960px) and (orientation: portrait) {
+  .prevent-mobile-portrait {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    z-index: 4;
+    position: relative;
+    padding: 2rem;
   }
-  .map-wrapper svg {
-    position: absolute;
-    top: 0;
-    width: 80vh;
-    min-height: 100vw;
-    left: 20vw;
-    stroke: transparent;
+  #root {
+    overflow-y: hidden;
+    max-height: 100vh;
   }
-  .legends {
-    max-height: 30vh;
+}
+@media screen and (min-width: 320px) and (max-width: 960px) {
+  .on-boarding {
+    height: unset;
+  }
+  .MuiTypography-h4 {
+    font-size: 1rem !important;
   }
   .gradient-legend-item {
     height: 30px;
   }
-}
-@media screen and (min-width: 320px) and (max-width: 767px) {
   .customBottomPaper {
     padding-bottom: 0;
-  }
-  #simple-wealth-info {
-    transform: rotate(-90deg) translateY(-6px) translateX(44px);
   }
   .legend-items-wrapper .gradient-legend-item-wrapper:nth-child(even) span {
     display: none
@@ -178,14 +182,4 @@ code {
   .legend-item {
     margin-right: 5px;
   }
-  .legend-item-wrapper {
-    margin-right: 10px;
-  }
-  .legend-unity {
-    margin-right: 15px !important;
-    margin-bottom: 0 !important;
-  }
-}
-.z-index-mid {
-  z-index: 5;
 }

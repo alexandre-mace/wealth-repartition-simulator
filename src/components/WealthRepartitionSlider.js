@@ -44,6 +44,7 @@ export default function WealthRepartitionSlider(props) {
                 aria-labelledby="discrete-slider-always"
                 step={1}
                 marks={marks}
+                orientation={"horizontal"}
                 min={0}
                 max={100}
                 onChange={props.handleSliderChange}

@@ -12,6 +12,7 @@ import getIncomeWithSharing from "./services/getIncomeWithSharing";
 import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
 import SimpleWealthInfo from "./components/SimpleWealthInfo";
+import {PreventMobilePortrait} from "./components/PreventMobilePortrait";
 
 let theme = createMuiTheme({
     palette: {
@@ -69,6 +70,9 @@ export const App = () => {
         <>
             <ThemeProvider theme={theme}>
                 <OnBoarding/>
+
+                <PreventMobilePortrait/>
+
                 <div className={"map-section"} onMouseMove={handleMove}>
                     <div className={"title-wrapper d-flex justify-content-between"}>
                         <Typography color={"primary"} className="page-title" variant="h4" >Wealth repartition simulator</Typography>
