@@ -42,7 +42,8 @@ export const App = () => {
                 setToolTipDisplayed({
                     code: e.target.dataset.id,
                     relativeElementPosition: e.target.getBoundingClientRect(),
-                    value: calculatedIncome
+                    value: calculatedIncome,
+                    country: country.name
                 });
             }
     };
