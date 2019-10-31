@@ -67,14 +67,26 @@ code {
   padding: 1rem;
 }
 /* LEGEND */
-.legendItem {
+.legend-item {
   width: 20px;
   height: 15px;
   margin-right: 15px;
   margin-bottom: 0;
 }
+.gradient-legend-item {
+  width: 20px;
+  margin-right: 15px;
+  margin-bottom: 0;
+  height: 50px;
+}
 .legend-item-wrapper {
   align-items: center;
+}
+.gradient-legend-item-wrapper {
+  align-items: flex-start;
+}
+.legend-items-wrapper {
+  /*transform: rotate(180deg)*/
 }
 .legends {
   position: absolute;
@@ -100,6 +112,9 @@ code {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.down-small {
+  transform: translateY(6px);
+}
 .pb-mid {
   padding-bottom: 2rem;
 }
@@ -123,18 +138,44 @@ code {
   border-color: #555 transparent transparent transparent;
 }
 
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  .map-section {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    height: 100vw;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  .map-wrapper svg {
+    position: absolute;
+    top: 0;
+    width: 80vh;
+    min-height: 100vw;
+    left: 20vw;
+    stroke: transparent;
+  }
+  .legends {
+    max-height: 30vh;
+  }
+  .gradient-legend-item {
+    height: 30px;
+  }
+}
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .customBottomPaper {
     padding-bottom: 0;
   }
-  .legends {
-    top: 80%;
-    padding-right: 1rem;
-    display: flex;
-    flex-wrap: wrap;
+  #simple-wealth-info {
+    transform: rotate(-90deg) translateY(-6px) translateX(44px);
+  }
+  .legend-items-wrapper .gradient-legend-item-wrapper:nth-child(even) span {
+    display: none
   }
   /* LEGEND */
-  .legendItem {
+  .legend-item {
     margin-right: 5px;
   }
   .legend-item-wrapper {

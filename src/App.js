@@ -69,7 +69,7 @@ export const App = () => {
         <>
             <ThemeProvider theme={theme}>
                 <OnBoarding/>
-                <div onMouseMove={handleMove}>
+                <div className={"map-section"} onMouseMove={handleMove}>
                     <div className={"title-wrapper d-flex justify-content-between"}>
                         <Typography color={"primary"} className="page-title" variant="h4" >Wealth repartition simulator</Typography>
                         <SimpleWealthInfo/>

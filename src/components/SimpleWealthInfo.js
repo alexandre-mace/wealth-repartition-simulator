@@ -37,7 +37,7 @@ export default function SimpleWealthInfo() {
     const classes = useStyles();
 
     return (
-        <PopupState variant="popper" popupId="demo-popup-popper">
+        <PopupState variant="popper" popupId="popup-simple-wealth-info">
             {popupState => (
                 <div className={"z-index-mid"}>
                     <Button variant="contained" {...bindToggle(popupState)}>
@@ -46,7 +46,7 @@ export default function SimpleWealthInfo() {
                     <Popper {...bindPopper(popupState)} transition>
                         {({ TransitionProps }) => (
                             <Fade {...TransitionProps} timeout={350}>
-                                <Paper className={classes.root}>
+                                <Paper className={classes.root} id={"simple-wealth-info"}>
                                     <Table className={classes.table} aria-label="simple table">
                                         <TableHead>
                                             <TableRow>
