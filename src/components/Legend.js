@@ -8,7 +8,6 @@ import {lowestAndHighestWorldIncome} from "../services/lowestAndHighestWorldInco
 
 export const Legend = () => {
     const legendGradients = gradients.slice().reverse();
-    console.log(legendGradients)
     return (
             <div className={"legends"}>
                 <Typography variant="caption" display="block" gutterBottom className={'legend-unity'}>
