@@ -3,7 +3,7 @@ import Switch from '@material-ui/core/Switch';
 import Typography from "@material-ui/core/Typography";
 import Grid from '@material-ui/core/Grid';
 
-export default function ColorModeSwitcher(props) {
+export const ColorModeSwitcher = (props) => {
     return (
         <div className={"color-mode-switcher"}>
             <Typography component="div">
@@ -11,9 +11,9 @@ export default function ColorModeSwitcher(props) {
                     <Grid item>Step</Grid>
                     <Grid item>
                         <Switch
-                            checked={props.colorModeSwitcher.checkedStep}
-                            onChange={props.handleColorModeChange('checkedStep')}
-                            value="checkedStop"
+                            checked={props.progressiveColorMode}
+                            onChange={props.handleColorModeChange}
+                            value={props.progressiveColorMode}
                             color="primary"
                             inputProps={{ 'aria-label': 'secondary checkbox' }}
                         />

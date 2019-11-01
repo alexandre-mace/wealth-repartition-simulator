@@ -14,7 +14,7 @@ export const Legend = (props) => {
                 <Typography variant="caption" display="block" gutterBottom className={'legend-unity'}>
                     dollars $
                 </Typography>
-                {props.colorModeSwitcher.checkedStep &&
+                {props.progressiveColorMode &&
                 <div className={"legend-items-wrapper"}>
                     {legendGradients.map((gradient, index) => (
                         <div className={"d-flex gradient-legend-item-wrapper"} key={index}>
@@ -38,7 +38,7 @@ export const Legend = (props) => {
                     ))}
                 </div>
                 }
-                {!props.colorModeSwitcher.checkedStep &&
+                {!props.progressiveColorMode &&
                     <>
                 {steps.map((colorLegend, index) => (
                     <div className={"d-flex legend-item-wrapper"} key={index}>

@@ -13,7 +13,7 @@ import countries from "./domain/countries";
 import {Tooltip} from "./components/Tooltip";
 import SimpleWealthInfo from "./components/SimpleWealthInfo";
 import {PreventMobilePortrait} from "./components/PreventMobilePortrait";
-import ColorModeSwitcher from "./components/ColorModeSwitcher";
+import {ColorModeSwitcher} from "./components/ColorModeSwitcher";
 import Slide from "@material-ui/core/Slide";
 import Snackbar from "@material-ui/core/Snackbar";
 
@@ -36,7 +36,7 @@ export const App = () => {
     const [sliderValue, setSliderValue] = useState(defaultSliderValue);
     const [toolTipDisplayed, setToolTipDisplayed] = useState(false);
     const [mousePosition, setMousePosition] = useState(false);
-    const [colorModeSwitcher, setColorModeSwitcher] = React.useState({checkedStep: false});
+    const [progressiveColorMode, setProgressiveColorMode] = React.useState(false);
     const [openSnackMessage, setOpenSnackMessage] = React.useState(false);
 
     useEffect(() => {
@@ -83,7 +83,7 @@ export const App = () => {
         }
 
         setSliderValue(value);
-        setMapCss(getCssFromCountryData(mapCss, value, colorModeSwitcher.checkedStep));
+        setMapCss(getCssFromCountryData(mapCss, value, progressiveColorMode));
     };
 
     const handleMove = (event) => {
@@ -96,9 +96,9 @@ export const App = () => {
         })
     };
 
-    const handleColorModeChange = name => event => {
-        setColorModeSwitcher({ ...colorModeSwitcher, [name]: event.target.checked });
-        setMapCss(getCssFromCountryData(mapCss, sliderValue, colorModeSwitcher.checkedStep));
+    const handleColorModeChange = () => {
+        setProgressiveColorMode(!progressiveColorMode);
+        setMapCss(getCssFromCountryData(mapCss, sliderValue, !progressiveColorMode));
     };
 
     return (
@@ -115,18 +115,18 @@ export const App = () => {
                         <SimpleWealthInfo/>
                     </div>
 
-                    <Legend colorModeSwitcher={colorModeSwitcher} />
+                    <Legend progressiveColorMode={progressiveColorMode} />
                     <SvgMap handleEnter={handleEnter} handleLeave={handleLeave} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
                     <Tooltip toolTipDisplayed={toolTipDisplayed} mousePosition={mousePosition}/>
 
-                    <ColorModeSwitcher colorModeSwitcher={colorModeSwitcher} handleColorModeChange={handleColorModeChange}/>
+                    <ColorModeSwitcher progressiveColorMode={progressiveColorMode} handleColorModeChange={handleColorModeChange}/>
 
                     <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
 
                     <Snackbar
                         open={openSnackMessage}
                         anchorOrigin={{ vertical: 'bottom',horizontal: 'right' }}
-                        autoHideDuration={50000}
+                        autoHideDuration={8000}
                         key={`bottom, right`}
                         onClose={handleCloseSnackMessage}
                         ClickAwayListenerProps={{ mouseEvent: false}}
