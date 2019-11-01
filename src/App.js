@@ -14,6 +14,8 @@ import {Tooltip} from "./components/Tooltip";
 import SimpleWealthInfo from "./components/SimpleWealthInfo";
 import {PreventMobilePortrait} from "./components/PreventMobilePortrait";
 import ColorModeSwitcher from "./components/ColorModeSwitcher";
+import Slide from "@material-ui/core/Slide";
+import Snackbar from "@material-ui/core/Snackbar";
 
 let theme = createMuiTheme({
     palette: {
@@ -24,6 +26,10 @@ let theme = createMuiTheme({
 });
 theme = responsiveFontSizes(theme);
 
+function TransitionLeft(props) {
+    return <Slide {...props} direction="left" />;
+}
+
 export const App = () => {
     const defaultSliderValue = 0;
     const [mapCss, setMapCss] = useState({});
@@ -31,6 +37,7 @@ export const App = () => {
     const [toolTipDisplayed, setToolTipDisplayed] = useState(false);
     const [mousePosition, setMousePosition] = useState(false);
     const [colorModeSwitcher, setColorModeSwitcher] = React.useState({checkedStep: false});
+    const [openSnackMessage, setOpenSnackMessage] = React.useState(false);
 
     useEffect(() => {
         setMapCss(getCssFromCountryData({}, defaultSliderValue, false));
@@ -54,7 +61,27 @@ export const App = () => {
         setToolTipDisplayed(false);
     };
 
+    const handleOpenSnackMessage = () => {
+        setOpenSnackMessage(true);
+    };
+
+    const handleCloseSnackMessage = () => {
+        setOpenSnackMessage(false);
+    };
+
     const handleSliderChange = (event, value) => {
+        let somaliaIncome = countries.find(country => country.code === 'SO').income;
+        let calculatedIncome = getIncomeWithSharing(somaliaIncome, averageWorldIncome, (sliderValue / 100));
+
+        if (calculatedIncome > 5000) {
+            if (sliderValue < value) {
+                handleOpenSnackMessage()
+            }
+        }
+        if (calculatedIncome < 5000) {
+            handleCloseSnackMessage();
+        }
+
         setSliderValue(value);
         setMapCss(getCssFromCountryData(mapCss, value, colorModeSwitcher.checkedStep));
     };
@@ -75,11 +102,12 @@ export const App = () => {
     };
 
     return (
-        <>
             <ThemeProvider theme={theme}>
+
                 <OnBoarding/>
 
                 <PreventMobilePortrait/>
+
 
                 <div className={"map-section"} onMouseMove={handleMove}>
                     <div className={"title-wrapper d-flex justify-content-between"}>
@@ -94,10 +122,21 @@ export const App = () => {
                     <ColorModeSwitcher colorModeSwitcher={colorModeSwitcher} handleColorModeChange={handleColorModeChange}/>
 
                     <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
+
+                    <Snackbar
+                        open={openSnackMessage}
+                        anchorOrigin={{ vertical: 'bottom',horizontal: 'right' }}
+                        autoHideDuration={50000}
+                        key={`bottom, right`}
+                        onClose={handleCloseSnackMessage}
+                        ClickAwayListenerProps={{ mouseEvent: false}}
+                        TransitionComponent={TransitionLeft}
+                        ContentProps={{
+                            'aria-describedby': 'message-id',
+                        }}
+                        message={<span id="message-id">Somalia is no longer considered in a starvation state !</span>}
+                    />
                 </div>
             </ThemeProvider>
-
-        </>
-
     );
 }
