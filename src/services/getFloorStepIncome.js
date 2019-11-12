@@ -1,6 +1,6 @@
 import steps from './../domain/legends/steps'
 
-export default function getStepIncomeFromIncome(income) {
+export default function getFloorStepIncome(income) {
     let floorStepIncome = false;
 
     for (let i = 0; i < steps.length; i++) {

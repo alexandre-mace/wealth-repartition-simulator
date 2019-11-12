@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import Popper from '@material-ui/core/Popper';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 import Fade from '@material-ui/core/Fade';
+import './ExtraWealthInfo.css';
 
 const useStyles = makeStyles({
     root: {
@@ -33,20 +34,20 @@ const rows = [
     createData('Highest', lowestAndHighestWorldIncome[1].name, lowestAndHighestWorldIncome[1].income)
 ];
 
-export default function SimpleWealthInfo() {
+export default function ExtraWealthInfo() {
     const classes = useStyles();
 
     return (
-        <PopupState variant="popper" popupId="popup-simple-wealth-info">
+        <PopupState variant="popper" popupId="popup-extra-wealth-info">
             {popupState => (
-                <div className={"z-index-mid"}>
+                <div>
                     <Button variant="contained" {...bindToggle(popupState)}>
                         EXTRA INFO
                     </Button>
                     <Popper {...bindPopper(popupState)} transition>
                         {({ TransitionProps }) => (
                             <Fade {...TransitionProps} timeout={350}>
-                                <Paper className={classes.root} id={"simple-wealth-info"}>
+                                <Paper className={classes.root} id={"extra-wealth-info"}>
                                     <Table className={classes.table} aria-label="simple table">
                                         <TableHead>
                                             <TableRow>

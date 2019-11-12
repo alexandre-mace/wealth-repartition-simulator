@@ -1,0 +1,15 @@
+.slider-wrapper {
+    padding: 1.5rem 3rem;
+    bottom: 1rem;
+    z-index: 2;
+    background-color: transparent !important;
+    color: white !important;
+}
+.MuiSlider-markLabel {
+    color: white !important;
+}
+@media screen and (min-width: 320px) and (max-width: 960px) {
+    .slider-wrapper {
+        padding-bottom: 0;
+    }
+}

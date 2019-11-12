@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import {Typography} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import './WealthRepartitionSlider.css'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -33,25 +34,30 @@ export default function WealthRepartitionSlider(props) {
     const classes = useStyles();
 
     return (
-        <Paper className={'customBottomPaper mx-3 mx-md-5'}>
-        <div className={classes.root}>
-            <Typography className="text-end" id="discrete-slider-always" gutterBottom>
-                Wealth repartition
-            </Typography>
-            <Slider
-                defaultValue={props.defaultSliderValue}
-                getAriaValueText={valuetext}
-                aria-labelledby="discrete-slider-always"
-                step={1}
-                marks={marks}
-                orientation={"horizontal"}
-                min={0}
-                max={100}
-                onChange={props.handleSliderChange}
-                valueLabelDisplay="on"
-            />
+        <div className="container-fluid mt-auto">
+            <div className="row">
+                <div className="col">
+                    <Paper className={'slider-wrapper'}>
+                        <div className={classes.root}>
+                            <Typography className="text-end" id="discrete-slider-always" gutterBottom>
+                                Wealth repartition
+                            </Typography>
+                            <Slider
+                                defaultValue={props.defaultSliderValue}
+                                getAriaValueText={valuetext}
+                                aria-labelledby="discrete-slider-always"
+                                step={1}
+                                marks={marks}
+                                orientation={"horizontal"}
+                                min={0}
+                                max={100}
+                                onChange={props.handleSliderChange}
+                                valueLabelDisplay="on"
+                            />
+                        </div>
+                    </Paper>
+                </div>
+            </div>
         </div>
-        </Paper>
-
     );
 }

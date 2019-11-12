@@ -2,10 +2,11 @@ import React from 'react';
 import gradients from './../domain/legends/gradients'
 import {Typography} from "@material-ui/core";
 import {defaultCountryBackgroundColor} from "../domain/constants";
-import getIncomeFromIncomePercentage from "../services/getIncomeFromIncomePercentage";
 import {lowestAndHighestWorldIncome} from "../services/lowestAndHighestWorldIncomeAccessor";
 import steps from './../domain/legends/steps'
 import getColorFromIncome from "../services/getColorFromIncome";
+import './Legend.css';
+import getNumberByScaledPercentage from "../utils/getNumberByScaledPercentage";
 
 export const Legend = (props) => {
     const legendGradients = gradients.slice().reverse();
@@ -23,11 +24,11 @@ export const Legend = (props) => {
                                 <>
                                     <div className={"gradient-legend-item"} style={{ background:  'linear-gradient(rgb(' + gradient.color + '),rgb(' + legendGradients[index + 1].color + ')'}}></div>
                                     {index + 2 !== legendGradients.length &&
-                                    <span>{getIncomeFromIncomePercentage(lowestAndHighestWorldIncome[0].income, lowestAndHighestWorldIncome[1].income, gradient.percentage / 100)}</span>
+                                    <span>{getNumberByScaledPercentage(lowestAndHighestWorldIncome[0].income, lowestAndHighestWorldIncome[1].income, gradient.percentage / 100)}</span>
                                     }
                                     {index + 2 === legendGradients.length &&
                                     <div className={"d-flex flex-column mb-2"}>
-                                        <span>{getIncomeFromIncomePercentage(lowestAndHighestWorldIncome[0].income, lowestAndHighestWorldIncome[1].income, gradient.percentage / 100)}</span>
+                                        <span>{getNumberByScaledPercentage(lowestAndHighestWorldIncome[0].income, lowestAndHighestWorldIncome[1].income, gradient.percentage / 100)}</span>
                                         <span className={"down-small d-block"}>{lowestAndHighestWorldIncome[0].income}</span>
                                     </div>
                                     }

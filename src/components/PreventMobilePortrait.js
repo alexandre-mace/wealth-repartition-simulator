@@ -1,4 +1,5 @@
 import React from 'react';
+import './PreventMobilePortrait.css';
 
 export const PreventMobilePortrait = () => (
         <div className={"prevent-mobile-portrait"}>

@@ -1,0 +1,35 @@
+/* HELPERS*/
+.d-flex {
+    display: flex;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-end {
+    text-align: end;
+}
+.my-2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.down-small {
+    transform: translateY(10px);
+}
+.pb-mid {
+    padding-bottom: 2rem;
+}
+.pt-high {
+    padding-top: 3rem;
+}
+.mt-low {
+    margin-top: 1rem !important;
+}
+.z-index-mid {
+    z-index: 1;
+}
+.z-index-high {
+    z-index: 2;
+}

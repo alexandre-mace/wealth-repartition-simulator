@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Typography} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
+import './OnBoarding.css'
 
 export const OnBoarding = () => {
     const [shouldDisplay, setShouldDisplay] = useState(true);
@@ -33,7 +34,7 @@ export const OnBoarding = () => {
                         <div className="row">
                             <div className="col">
                                 <Typography variant="body1" className={"pt-high"} gutterBottom>
-                                    I recently wanted to know what would happen if the world wealth was shared accross countries and what impact would it have on poverty.
+                                    I recently wanted to know what would happen if the world wealth was shared accross countries and what impact would it have on poverty / starvation.
                                     So here is what i did :
                                 </Typography>
                             </div>
@@ -46,7 +47,7 @@ export const OnBoarding = () => {
                                     <li>Construct data and link it to svg thanks to <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a></li>
                                     <li>Calculate the average world income</li>
                                     <li>Create a slider on which 0% means the actual repartition and 100% means everyone has the average world income</li>
-                                    <li>Make a bit of math to calculate the color and income progresive ratio</li>
+                                    <li>Make a bit of math to calculate the color and income step and progresive ratio</li>
                                 </ul>
                             </div>
                         </div>

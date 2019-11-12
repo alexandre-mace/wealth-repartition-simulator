@@ -1,5 +1,6 @@
 import gradients from '../domain/legends/gradients';
-export default function getRelativeGradientFromIncomePercentage(percentage) {
+
+export default function getGradientFromIncomePercentage(percentage) {
     let gradient = {};
     for (let i = 1; i < gradients.length; i++) {
         // if you are on the last loop or if your percentage is inferior to the next one
