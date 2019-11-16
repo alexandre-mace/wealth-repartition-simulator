@@ -12,4 +12,8 @@
     .MuiSnackbarContent-root .MuiSnackbarContent-message {
         padding: 0 !important;
     }
+    .MuiSnackbar-anchorOriginBottomRight {
+        bottom: 5px !important;
+        right: 5px !important;
+    }
 }
