@@ -20,7 +20,7 @@ export const Tooltip = ({ values, position  }) => {
 
     return (
         <div className={'custom-tooltip'} style={style} >
-            {values.map((value, index) => (
+            {Array.isArray(values) && values.map((value, index) => (
                 <React.Fragment key={index}>
                 {value} <br/>
                 </React.Fragment>

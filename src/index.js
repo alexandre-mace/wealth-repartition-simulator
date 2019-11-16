@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './helpers.css';
-import {App} from './App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {createMuiTheme, MuiThemeProvider as ThemeProvider, responsiveFontSizes} from "@material-ui/core";
+import rootReducer from './reducers'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
 
 let theme = createMuiTheme({
     palette: {
@@ -14,9 +18,14 @@ let theme = createMuiTheme({
     },
 });
 theme = responsiveFontSizes(theme);
+
+const store = createStore(rootReducer)
+
 ReactDOM.render(
     <ThemeProvider theme={theme}>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </ThemeProvider>
     , document.getElementById('root'));
 

@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import WealthRepartitionSlider from "./components/WealthRepartitionSlider";
 import SvgMap from "./components/Map";
 import {defaultCountryBackgroundColor} from "./domain/constants";
-import {getMapCss} from "./services/getMapCss";
 import {averageWorldIncome} from "./services/averageWorldIncomeAccessor";
 import {Legend} from "./components/Legend";
 import Typography from '@material-ui/core/Typography';
@@ -16,90 +15,95 @@ import {ColorModeSwitcher} from "./components/ColorModeSwitcher";
 import {SnackMessage} from "./components/SnackMessage";
 import isLowestIncomeCountryStarving from "./services/isLowestIncomeCountryStarving";
 import {lowestAndHighestWorldIncome} from "./services/lowestAndHighestWorldIncomeAccessor";
-import getWordCount from "./utils/getWordCount";
+import {connect} from "react-redux";
+import {updateWealthSliderValue} from "./actions/updateSliderValues";
+import {updateMapCss} from "./actions/updateMapCss";
+import {updateTooltipContent} from "./actions/updateTooltipContent";
+import {toggleProgressiveColorMode} from "./actions/toggleProgressiveColorMode";
+import {updateTooltipPosition} from "./actions/updateTooltipPosition";
+import {updateTooltipVisibility} from "./actions/updateTooltipVisibility";
 
-export const App = () => {
-    const defaultSliderValue = 0;
-    const [mapCss, setMapCss] = useState({});
-    const [sliderValue, setSliderValue] = useState(defaultSliderValue);
-    const [targetedCountryInfo, setTargetedCountryInfo] = useState(false);
-    const [tooltip, setTooltip] = useState({ visible: false });
-    const [progressiveColorMode, setProgressiveColorMode] = React.useState(false);
-
+const App = (props) => {
     useEffect(() => {
-        setMapCss(getMapCss({}, defaultSliderValue, false));
+        props.updateMapCss(0, false);
     }, []);
 
     const handleMouseEnterCountry = (event) => {
-            const country = countries.find(country => country.code === event.target.dataset.id);
-            if (country && country.income) {
-                const percentageScaledIncome = getNumberByScaledPercentage(country.income, averageWorldIncome, (sliderValue / 100));
-                setTargetedCountryInfo({
-                    income: percentageScaledIncome,
-                    name: country.name,
-                });
-                setTooltip({
-                    visible: true,
-                    values: [country.name, percentageScaledIncome],
-                    position: {
-                        x: event.pageX,
-                        y: event.pageY  - (getWordCount(country.name) > 1 ? 85 : 65)
-                    }
-                })
-            }
+        const country = countries.find(country => country.code === event.target.dataset.id);
+        if (country && country.income) {
+            const percentageScaledIncome = getNumberByScaledPercentage(country.income, averageWorldIncome, (props.sliderValues.wealth / 100));
+            props.updateTooltipVisibility(true);
+            props.updateTooltipContent([country.name, percentageScaledIncome]);
+            props.updateTooltipPosition(event);
+        }
     };
 
     const handleMouseLeaveCountry = () => {
-        setTooltip({visible: false});
+        props.updateTooltipVisibility(false);
     };
 
     const handleSliderChange = (event, value) => {
-        setSliderValue(value);
-        setMapCss(getMapCss(mapCss, value, progressiveColorMode));
+        props.updateWealthSliderValue(value);
+        props.updateMapCss(value, props.progressiveColorMode);
     };
 
     const handleMouseMove = (event) => {
-        if (tooltip.visible) {
-            setTooltip({
-                ...tooltip,
-                position: {
-                    x: event.pageX,
-                    y: event.pageY  - (getWordCount(targetedCountryInfo.name) > 1 ? 85 : 65)
-                }
-            })
+        if (props.tooltip.visible) {
+            props.updateTooltipPosition(event)
         }
     };
 
     const handleColorModeChange = () => {
-        setProgressiveColorMode(!progressiveColorMode);
-        setMapCss(getMapCss(mapCss, sliderValue, !progressiveColorMode));
+        props.updateMapCss(props.sliderValues.wealth, !(props.progressiveColorMode));
+        props.toggleProgressiveColorMode();
     };
 
     return (
             <>
-                <div className={"d-flex justify-content-between align-items-center "}>
+                <div className={"d-flex justify-content-between align-items-center align-items-md-start"}>
                     <Typography color={"primary"} className="page-title" variant="h4" >Wealth repartition simulator</Typography>
                     <div className={"d-flex flex-md-column align-items-center align-items-md-end z-index-high"}>
                         <ExtraWealthInfo/>
                         <div className={"mt-md-3 ml-3 ml-md-0"}>
-                            <ColorModeSwitcher progressiveColorMode={progressiveColorMode} handleColorModeChange={handleColorModeChange}/>
+                            <ColorModeSwitcher progressiveColorMode={props.progressiveColorMode} handleColorModeChange={handleColorModeChange}/>
                         </div>
                     </div>
                 </div>
 
-                <Legend progressiveColorMode={progressiveColorMode} />
-                <SvgMap handleMouseMove={handleMouseMove} handleMouseEnterCountry={handleMouseEnterCountry} handleMouseLeaveCountry={handleMouseLeaveCountry} styles={mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
+                <Legend progressiveColorMode={props.progressiveColorMode} />
+                <SvgMap handleMouseMove={handleMouseMove} handleMouseEnterCountry={handleMouseEnterCountry} handleMouseLeaveCountry={handleMouseLeaveCountry} styles={props.mapCss} defaultCountryBackgroundColor={defaultCountryBackgroundColor}/>
 
-                {tooltip.visible &&
-                    <Tooltip position={tooltip.position} values={tooltip.values}/>
+                {props.tooltip.visible &&
+                    <Tooltip position={props.tooltip.position} values={props.tooltip.values}/>
                 }
 
-                <WealthRepartitionSlider defaultSliderValue={defaultSliderValue} handleSliderChange={handleSliderChange}/>
+                <WealthRepartitionSlider defaultSliderValue={props.sliderValues.wealth} handleSliderChange={handleSliderChange}/>
 
-                <SnackMessage open={!isLowestIncomeCountryStarving(sliderValue)} message={lowestAndHighestWorldIncome[0].name + " is no longer considered in a starvation state !"}/>
+                <SnackMessage open={!isLowestIncomeCountryStarving(props.sliderValues.wealth)} message={lowestAndHighestWorldIncome[0].name + " is no longer considered in a starvation state !"}/>
 
                 <OnBoarding/>
                 <PreventMobilePortrait/>
             </>
     );
-}
+};
+
+const mapStateToProps = state => ({
+    sliderValues: state.sliderValues,
+    mapCss: state.mapCss,
+    tooltip: state.tooltip,
+    progressiveColorMode: state.progressiveColorMode
+});
+
+const mapDispatchToProps = dispatch => ({
+    updateWealthSliderValue: (value) => dispatch(updateWealthSliderValue(value)),
+    updateMapCss: (repartitionPercentage, isProgressiveMode) => dispatch(updateMapCss({ repartitionPercentage: repartitionPercentage, isProgressiveMode: isProgressiveMode })),
+    updateTooltipVisibility: (visible) => dispatch(updateTooltipVisibility(visible)),
+    updateTooltipContent: (values) => dispatch(updateTooltipContent(values)),
+    updateTooltipPosition: (event) => dispatch(updateTooltipPosition(event)),
+    toggleProgressiveColorMode: () => dispatch(toggleProgressiveColorMode())
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)

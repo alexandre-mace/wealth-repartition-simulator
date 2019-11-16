@@ -18,7 +18,7 @@ export const OnBoarding = () => {
                         <div className="row">
                             <div className="col">
                                 <Typography variant="h4" className={"pb-mid"} gutterBottom>
-                                    Wazerzerelcome on the wealth repartition simulator !
+                                    Welcome on the wealth repartition simulator !
                                 </Typography>
                             </div>
                         </div>
