@@ -13,6 +13,7 @@ import Popper from '@material-ui/core/Popper';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 import Fade from '@material-ui/core/Fade';
 import './ExtraWealthInfo.css';
+import {withWidth} from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
@@ -34,14 +35,19 @@ const rows = [
     createData('Highest', lowestAndHighestWorldIncome[1].name, lowestAndHighestWorldIncome[1].income)
 ];
 
-export default function ExtraWealthInfo() {
+function ExtraWealthInfo(width) {
     const classes = useStyles();
+
+    const isSmallScreen = ['xs', 'sm'].includes(width.width);
+    const buttonProps = {
+        size: isSmallScreen ? "small" : "medium"
+    };
 
     return (
         <PopupState variant="popper" popupId="popup-extra-wealth-info">
             {popupState => (
                 <div>
-                    <Button variant="contained" {...bindToggle(popupState)}>
+                    <Button {...buttonProps} variant="contained" {...bindToggle(popupState)}>
                         EXTRA INFO
                     </Button>
                     <Popper {...bindPopper(popupState)} transition>
@@ -78,3 +84,5 @@ export default function ExtraWealthInfo() {
 
     );
 }
+
+export default withWidth()(ExtraWealthInfo);

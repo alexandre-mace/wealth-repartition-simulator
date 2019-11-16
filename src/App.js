@@ -77,9 +77,9 @@ export const App = () => {
 
     return (
             <>
-                <div className={"d-flex justify-content-between"}>
+                <div className={"d-flex justify-content-between align-items-center "}>
                     <Typography color={"primary"} className="page-title" variant="h4" >Wealth repartition simulator</Typography>
-                    <div className={"d-flex flex-md-column align-items-md-end z-index-high"}>
+                    <div className={"d-flex flex-md-column align-items-center align-items-md-end z-index-high"}>
                         <ExtraWealthInfo/>
                         <div className={"mt-md-3 ml-3 ml-md-0"}>
                             <ColorModeSwitcher progressiveColorMode={progressiveColorMode} handleColorModeChange={handleColorModeChange}/>

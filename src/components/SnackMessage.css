@@ -2,3 +2,14 @@
     background-color: #38d39f !important;
     color: #3f3d56 !important;
 }
+@media screen and (min-width: 320px) and (max-width: 960px) {
+    .MuiSnackbarContent-root {
+        background-color: #38d39f !important;
+        color: #3f3d56 !important;
+        flex-basis: unset !important;
+        flex-grow: unset !important;
+    }
+    .MuiSnackbarContent-root .MuiSnackbarContent-message {
+        padding: 0 !important;
+    }
+}
