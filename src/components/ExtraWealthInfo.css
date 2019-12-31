@@ -1,3 +1,7 @@
 #popup-extra-wealth-info {
     z-index: 3;
+    margin-top: 15px;
+}
+#extra-wealth-info {
+	transform: translateX(-10px);
 }
