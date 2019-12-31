@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/wealth-repartition-simulator/static/css/main.ebf8de5a.chunk.css",
-    "main.js": "/wealth-repartition-simulator/static/js/main.3ceb9d18.chunk.js",
-    "main.js.map": "/wealth-repartition-simulator/static/js/main.3ceb9d18.chunk.js.map",
-    "runtime-main.js": "/wealth-repartition-simulator/static/js/runtime-main.207eee4b.js",
-    "runtime-main.js.map": "/wealth-repartition-simulator/static/js/runtime-main.207eee4b.js.map",
-    "static/js/2.f36c844a.chunk.js": "/wealth-repartition-simulator/static/js/2.f36c844a.chunk.js",
-    "static/js/2.f36c844a.chunk.js.map": "/wealth-repartition-simulator/static/js/2.f36c844a.chunk.js.map",
+    "main.css": "/wealth-repartition-simulator/static/css/main.d09d03c1.chunk.css",
+    "main.js": "/wealth-repartition-simulator/static/js/main.a632ca41.chunk.js",
+    "main.js.map": "/wealth-repartition-simulator/static/js/main.a632ca41.chunk.js.map",
+    "runtime-main.js": "/wealth-repartition-simulator/static/js/runtime-main.2e4d8d40.js",
+    "runtime-main.js.map": "/wealth-repartition-simulator/static/js/runtime-main.2e4d8d40.js.map",
+    "static/js/2.4ee0bf6a.chunk.js": "/wealth-repartition-simulator/static/js/2.4ee0bf6a.chunk.js",
+    "static/js/2.4ee0bf6a.chunk.js.map": "/wealth-repartition-simulator/static/js/2.4ee0bf6a.chunk.js.map",
     "index.html": "/wealth-repartition-simulator/index.html",
-    "precache-manifest.0aa864ec61dcb6c6f883315b782d6a61.js": "/wealth-repartition-simulator/precache-manifest.0aa864ec61dcb6c6f883315b782d6a61.js",
+    "precache-manifest.3b704288c7489fc941c82b621f733099.js": "/wealth-repartition-simulator/precache-manifest.3b704288c7489fc941c82b621f733099.js",
     "service-worker.js": "/wealth-repartition-simulator/service-worker.js",
-    "static/css/main.ebf8de5a.chunk.css.map": "/wealth-repartition-simulator/static/css/main.ebf8de5a.chunk.css.map"
+    "static/css/main.d09d03c1.chunk.css.map": "/wealth-repartition-simulator/static/css/main.d09d03c1.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.207eee4b.js",
-    "static/js/2.f36c844a.chunk.js",
-    "static/css/main.ebf8de5a.chunk.css",
-    "static/js/main.3ceb9d18.chunk.js"
+    "static/js/runtime-main.2e4d8d40.js",
+    "static/js/2.4ee0bf6a.chunk.js",
+    "static/css/main.d09d03c1.chunk.css",
+    "static/js/main.a632ca41.chunk.js"
   ]
 }
