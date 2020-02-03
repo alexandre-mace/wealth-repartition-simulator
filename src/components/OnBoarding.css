@@ -15,11 +15,13 @@
 }
 .on-boarding svg {
     max-height: 25vh;
+    max-height: calc(var(--vh, 1vh) * 25);
     max-width: 100%;
 }
 @media screen and (max-width: 640px) {
     .on-boarding svg {
         max-height: 30vh;
+        max-height: calc(var(--vh, 1vh) * 30);
     }
 }
 @media screen and (min-width: 320px) and (max-width: 960px) {

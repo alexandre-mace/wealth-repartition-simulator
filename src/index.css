@@ -18,6 +18,7 @@ code {
   padding: 1rem;
   background-color: #3F3D56;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
 }
 
@@ -25,6 +26,7 @@ code {
   body {
     overflow-y: hidden;
     max-height: 100vh;
+    max-height: calc(var(--vh, 1vh) * 100);
   }
 }
 @media screen and (min-width: 320px) and (max-width: 960px) {
