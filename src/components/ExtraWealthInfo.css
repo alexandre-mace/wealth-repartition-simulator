@@ -4,4 +4,6 @@
 }
 #extra-wealth-info {
 	transform: translateX(-10px);
+    max-height: 58vh;
+    max-height: calc(var(--vh, 1vh) * 58);
 }
