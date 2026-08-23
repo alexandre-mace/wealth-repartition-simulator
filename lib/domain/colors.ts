@@ -1,4 +1,4 @@
-import { paysLePlusPauvre, paysLePlusRiche } from "./model"
+import { paysLePlusPauvre, paysLePlusRiche } from "@/lib/domain/model"
 
 /**
  * Le système de couleurs de 2019, porté tel quel.
@@ -63,5 +63,3 @@ export function palierDuRevenu(revenu: number): number {
 export function couleurDuPays(revenu: number, modeProgressif: boolean): string {
   return couleurDuRevenu(modeProgressif ? revenu : palierDuRevenu(revenu))
 }
-
-export const COULEUR_SANS_DONNEES = "rgba(224, 224, 224, 0.2)"

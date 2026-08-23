@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import "shadcn/tailwind.css";
+
+/* Thème unique. La variante dark ne s'active que par une classe .dark, jamais
+   posée : sans cette ligne, les classes dark: du stock se déclenchent chez tout
+   visiteur dont le système est en sombre. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-roboto), system-ui, sans-serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-nodata: var(--nodata);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+/*
+ * Les deux couleurs de 2019, converties en OkLCh : l'ardoise violette #3f3d56
+ * et le vert menthe #38d39f. Elles pilotent tout le thème, donc les composants
+ * shadcn stock prennent l'allure du projet sans qu'aucun ne soit modifié.
+ */
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.3727 0.0425 287.8); /* #3f3d56 */
+  --foreground: oklch(1 0 0);
+
+  --card: oklch(0.4148 0.0447 287.7); /* #4a4863 */
+  --card-foreground: oklch(1 0 0);
+
+  /* Le panneau d'information était une feuille blanche : c'était le Paper par
+     défaut de Material, pas un choix du projet. Il prend la couleur des
+     surfaces, sinon les composants du stock, qui écrivent en text-foreground,
+     rendent du blanc sur blanc. */
+  --popover: oklch(0.4148 0.0447 287.7);
+  --popover-foreground: oklch(1 0 0);
+
+  --primary: oklch(0.7751 0.1475 165.5); /* #38d39f */
+  --primary-foreground: oklch(0.3727 0.0425 287.8);
+
+  --secondary: oklch(0.4148 0.0447 287.7);
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.4148 0.0447 287.7);
+  --muted-foreground: oklch(0.78 0.02 288);
+
+  --accent: oklch(0.45 0.045 287.7);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.62 0.21 25);
+
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 22%);
+  --ring: oklch(0.7751 0.1475 165.5);
+
+  /* Les pays sans chiffre publié, gris translucide comme en 2019. */
+  --nodata: oklch(0.9 0 0 / 20%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+
+  /* Tailwind v4 met cursor:default sur les boutons ; on garde le pointer,
+     affordance attendue sur un site grand public (opt-out documenté) */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

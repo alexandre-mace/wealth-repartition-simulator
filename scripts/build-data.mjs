@@ -1,5 +1,5 @@
 /**
- * Reconstruit src/data/countries.ts depuis l'API de la Banque mondiale.
+ * Reconstruit lib/data/countries.ts depuis l'API de la Banque mondiale.
  *
  * Deux indicateurs : le RNB par habitant (methode Atlas, dollars courants) et
  * la population. La population est indispensable : sans elle on ne peut pas
@@ -30,7 +30,7 @@ async function vraisPays() {
   );
 }
 
-const svg = readFileSync(new URL("../src/assets/map.svg", import.meta.url), "utf8");
+const svg = readFileSync(new URL("../public/map.svg", import.meta.url), "utf8");
 const surLaCarte = new Map(
   [...svg.matchAll(/data-id="([A-Z]{2})" data-name="([^"]*)"/g)].map((m) => [
     m[1],
@@ -106,5 +106,5 @@ export const RNB_MONDIAL_PUBLIE = ${Math.round(monde.value)}
 export const countries: Pays[] = ${JSON.stringify(donnees, null, 2)}
 `;
 
-writeFileSync(new URL("../src/data/countries.ts", import.meta.url), entete);
-console.log("\nsrc/data/countries.ts ecrit");
+writeFileSync(new URL("../lib/data/countries.ts", import.meta.url), entete);
+console.log("\nlib/data/countries.ts ecrit");

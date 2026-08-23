@@ -1,4 +1,4 @@
-import { countries, RNB_MONDIAL_PUBLIE, type Pays } from "../data/countries"
+import { countries, RNB_MONDIAL_PUBLIE, type Pays } from "@/lib/data/countries"
 
 /**
  * Le modèle du simulateur.

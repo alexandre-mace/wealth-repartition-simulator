@@ -28,11 +28,15 @@ nowhere.
 | World average | mean of national averages | total income ÷ total people |
 | Data | World Bank, 2018 | World Bank, 2024, rebuilt from the API |
 | Poverty line | invented, $5,000/year | World Bank low income threshold, $1,135 |
-| Stack | CRA 3.2, React 16, Material UI v0 **and** v4, Redux | Vite, React 19, TypeScript, no state library |
+| Stack | CRA 3.2, React 16, Material UI v0 **and** v4, Redux | Next.js 16, React 19, TypeScript, Tailwind v4, no state library |
+| Components | Material UI | shadcn/ui `aria-nova` (React Aria), unmodified, themed by CSS variables |
 | Map | 1 930 lines of generated JSX, one handler per country | the original SVG, one handler, one stylesheet |
 | Mobile portrait | refused, "please turn your phone" | supported |
 
-The maths, the colour ramp and the interaction are unchanged.
+The maths, the colour ramp and the interaction are unchanged. Not a single
+shadcn component was edited: the slate `#3f3d56` and the mint `#38d39f` are
+declared as theme variables, and the stock components take the project's look
+from there.
 
 ## What it says
 
@@ -63,7 +67,7 @@ npm install
 npm run dev
 ```
 
-`npm run data` rebuilds `src/data/countries.ts` from the World Bank API. Pass a
+`npm run data` rebuilds `lib/data/countries.ts` from the World Bank API. Pass a
 year to change the vintage :
 
 ```bash
