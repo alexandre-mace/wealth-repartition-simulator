@@ -1,0 +1,657 @@
+/*
+ * Les couleurs de 2019, gardées à l'identique : l'ardoise violette #3f3d56 et
+ * le vert menthe #38d39f. La mise en page, elle, a été refaite pour tenir sur
+ * un téléphone en portrait, que la version d'origine refusait d'afficher.
+ */
+
+:root {
+  --fond: #3f3d56;
+  --fond-clair: #4a4863;
+  --accent: #38d39f;
+  --encre: #ffffff;
+  --encre-douce: rgba(255, 255, 255, 0.62);
+  --bord: rgba(255, 255, 255, 0.14);
+  --ombre: 0 8px 28px rgba(0, 0, 0, 0.35);
+  --rayon: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--fond);
+  color: var(--encre);
+  font-family:
+    "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------- coquille */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 100dvh;
+  padding: 1rem;
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.title {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(1.05rem, 3.2vw, 2.125rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.topbar-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+/* -------------------------------------------------------------------- carte */
+
+.stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.map {
+  width: 100%;
+  max-height: 100%;
+}
+
+.map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 68dvh;
+  stroke: transparent;
+}
+
+.map svg path {
+  transition: fill 220ms ease;
+}
+
+/* Le survol souligne le pays sans changer sa couleur, qui porte la donnée. */
+@media (hover: hover) {
+  .map svg path[data-id]:hover {
+    stroke: var(--encre);
+    stroke-width: 1.5;
+    paint-order: stroke;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map svg path {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ légende */
+
+.legend {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.legend-unit {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--encre-douce);
+  font-size: 0.75rem;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.legend-swatch {
+  width: 20px;
+  height: 15px;
+  margin-right: 15px;
+  flex: none;
+}
+
+.legend-row--gradient {
+  align-items: flex-start;
+}
+
+.legend-swatch--gradient {
+  height: 50px;
+}
+
+/* Le plancher de l'échelle, aligné sur le bas de la dernière bande. La ligne
+   qui le porte réserve la hauteur, sinon il se pose sur « No data ». */
+.legend-floor {
+  display: inline-block;
+  transform: translateY(28px);
+}
+
+.legend-row--gradient:nth-last-child(2) {
+  margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------------------------- interrupteur */
+
+.mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--encre-douce);
+  cursor: pointer;
+  user-select: none;
+}
+
+.mode-switch [data-active="true"] {
+  color: var(--encre);
+}
+
+.switch-track {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  border: none;
+  border-radius: 999px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 180ms ease;
+  flex: none;
+}
+
+.switch-track[aria-checked="true"] {
+  background: rgba(56, 211, 159, 0.45);
+}
+
+.switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--encre);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.switch-track[aria-checked="true"] .switch-thumb {
+  background: var(--accent);
+  transform: translateX(20px);
+}
+
+/* ------------------------------------------------------------------ boutons */
+
+.button {
+  border: none;
+  border-radius: 4px;
+  padding: 0.45rem 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #2b2a3d;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: var(--ombre);
+  transition: background 160ms ease;
+}
+
+.button:hover {
+  background: #ffffff;
+}
+
+.button--accent {
+  background: var(--accent);
+  color: var(--fond);
+}
+
+.button--accent:hover {
+  background: #4ae0ac;
+}
+
+/* -------------------------------------------------------------------- panneau */
+
+.panel-anchor {
+  position: relative;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 5;
+  width: min(420px, calc(100vw - 2rem));
+  max-height: 70dvh;
+  overflow-y: auto;
+  border-radius: var(--rayon);
+  background: #ffffff;
+  color: #2b2a3d;
+  box-shadow: var(--ombre);
+  text-align: left;
+}
+
+.panel table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.panel th,
+.panel td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.panel th:first-child,
+.panel td:first-child {
+  text-align: left;
+}
+
+.panel thead th {
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: 500;
+}
+
+.panel tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.panel-note {
+  padding: 0.9rem 1rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.62);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.panel-note p {
+  margin: 0 0 0.6rem;
+}
+
+.panel-note p:last-child {
+  margin-bottom: 0;
+}
+
+.panel-note a {
+  color: #1b7a5a;
+}
+
+/* -------------------------------------------------------------------- curseur */
+
+.slider-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0 clamp(0.5rem, 4vw, 3rem);
+  z-index: 2;
+}
+
+.slider-label {
+  align-self: flex-end;
+  font-size: 0.95rem;
+}
+
+.slider-readout {
+  align-self: flex-end;
+  color: var(--encre-douce);
+  font-size: 0.8rem;
+  min-height: 1.2em;
+}
+
+.slider-track {
+  position: relative;
+  padding-top: 1.9rem;
+}
+
+.slider-bubble {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--fond);
+  font-size: 0.7rem;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.slider-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -2px;
+  border: 4px solid transparent;
+  border-top-color: var(--accent);
+}
+
+.slider-input {
+  width: 100%;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider-input::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--accent) var(--fill, 0%),
+    rgba(255, 255, 255, 0.3) var(--fill, 0%)
+  );
+}
+
+.slider-input::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.slider-input::-moz-range-progress {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.slider-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7.5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(56, 211, 159, 0.2);
+  transition: box-shadow 160ms ease;
+}
+
+.slider-input:hover::-webkit-slider-thumb,
+.slider-input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 8px rgba(56, 211, 159, 0.2);
+}
+
+.slider-input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.slider-marks {
+  display: flex;
+  justify-content: space-between;
+  color: var(--encre-douce);
+  font-size: 0.75rem;
+}
+
+/* -------------------------------------------------------------------- infobulle */
+
+.tooltip {
+  position: fixed;
+  z-index: 10;
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  background: #555;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: #555;
+}
+
+.tooltip strong {
+  display: block;
+  font-weight: 500;
+}
+
+.tooltip-before {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* --------------------------------------------------------------- notification */
+
+.snack {
+  position: fixed;
+  right: 1rem;
+  bottom: 8.5rem;
+  z-index: 6;
+  max-width: min(420px, calc(100vw - 2rem));
+  padding: 0.85rem 1.1rem;
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--fond);
+  font-size: 0.875rem;
+  box-shadow: var(--ombre);
+  animation: snack-in 260ms ease;
+}
+
+@keyframes snack-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snack {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------- onboarding */
+
+.onboarding {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow-y: auto;
+  background: var(--fond);
+  padding: 2rem 1.5rem;
+  padding-top: max(2rem, env(safe-area-inset-top));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+.onboarding-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 640px;
+  min-height: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.onboarding h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 4.5vw, 2.125rem);
+  font-weight: 400;
+}
+
+.onboarding-illustration svg {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  max-height: 28dvh;
+}
+
+.onboarding p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.onboarding ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  text-align: left;
+  line-height: 1.7;
+}
+
+.onboarding a {
+  color: var(--accent);
+}
+
+.onboarding-note {
+  color: var(--encre-douce);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------- petit */
+
+@media (max-width: 900px) {
+  .legend {
+    position: static;
+    transform: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.9rem;
+    order: 3;
+  }
+
+  .stage {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .legend-unit {
+    margin-bottom: 0;
+  }
+
+  .legend-row {
+    font-size: 0.75rem;
+  }
+
+  .legend-swatch {
+    width: 14px;
+    height: 11px;
+    margin-right: 6px;
+  }
+
+  .legend-swatch--gradient {
+    height: 26px;
+  }
+
+  .map svg {
+    max-height: 46dvh;
+  }
+}
+
+/* En portrait étroit, une carte du monde au ratio 2:1 est forcément basse :
+   on récupère de la largeur plutôt que de demander à l'utilisateur de tourner
+   son téléphone, ce que faisait la version de 2019. */
+@media (max-width: 560px) {
+  .app {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .slider-zone {
+    padding: 0;
+  }
+
+  .mode-switch {
+    font-size: 0.8rem;
+  }
+
+  .slider-label {
+    font-size: 0.85rem;
+  }
+
+  .slider-readout {
+    font-size: 0.75rem;
+  }
+
+  .snack {
+    right: 0.75rem;
+    left: 0.75rem;
+    bottom: 7.5rem;
+    max-width: none;
+  }
+
+  .onboarding {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .onboarding-inner {
+    gap: 1.1rem;
+  }
+
+  .onboarding-illustration svg {
+    max-width: 200px;
+    max-height: 20dvh;
+  }
+
+  .onboarding p,
+  .onboarding li {
+    font-size: 0.9rem;
+  }
+}

@@ -1,9 +1,0 @@
-#popup-extra-wealth-info {
-    z-index: 3;
-    margin-top: 15px;
-}
-#extra-wealth-info {
-	transform: translateX(-10px);
-    max-height: 58vh;
-    max-height: calc(var(--vh, 1vh) * 58);
-}
