@@ -107,7 +107,9 @@ export function Simulator({
         />
       </div>
 
-      <div className="z-10 flex flex-col gap-1 md:px-12">
+      {/* Le retrait latéral laisse la place au pouce et à sa bulle, qui
+          débordent de la moitié de leur largeur aux deux extrémités. */}
+      <div className="z-10 flex flex-col gap-1 px-4 md:px-12">
         <span className="self-end text-sm">Wealth repartition</span>
         <span
           aria-live="polite"
@@ -117,22 +119,23 @@ export function Simulator({
         </span>
 
         <div className="relative pt-8">
-          {/* La bulle de valeur au-dessus du pouce, comme en 2019. Le décalage
-              compense la largeur du pouce, sinon elle dérive aux extrémités. */}
+          {/* La bulle de valeur au-dessus du pouce, comme en 2019. React Aria
+              pose le pouce à `left: X%` avec translateX(-50%), donc son centre
+              tombe pile sur X% : la bulle suit la même règle, sans correction. */}
           <span
             aria-hidden="true"
             className="absolute top-0 grid size-7 -translate-x-1/2 place-items-center rounded-full bg-primary text-xs font-medium text-primary-foreground after:absolute after:top-full after:left-1/2 after:-mt-0.5 after:-ml-1 after:border-4 after:border-transparent after:border-t-primary"
-            style={{
-              left: `calc(${pourcentage}% + ${(0.5 - pourcentage / 100) * 12}px)`,
-            }}
+            style={{ left: `${pourcentage}%` }}
           >
             {pourcentage}
           </span>
 
           <Slider
-            /* Le rail du stock est en bg-muted, pensé pour un fond clair :
-               sur l'ardoise il disparaît. */
-            className="[&_[data-slot=slider-track]]:bg-white/25"
+            /* Deux écarts au stock, assumés ici plutôt que dans le composant :
+               le rail est éclairci parce que le bg-muted d'origine suppose un
+               fond clair et disparaît sur l'ardoise, et il est épaissi parce
+               que ce curseur est la seule commande de l'outil. */
+            className="[&_[data-slot=slider-thumb]]:size-6 [&_[data-slot=slider-thumb]]:border-2 [&_[data-slot=slider-track]]:h-3! [&_[data-slot=slider-track]]:bg-white/25"
             aria-label="Wealth repartition"
             value={pourcentage}
             onChange={(v) => setPourcentage(v as number)}
