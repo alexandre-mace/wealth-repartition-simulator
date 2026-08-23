@@ -3,7 +3,7 @@
 **What would happen if every income on Earth were shared equally?**
 One slider, from the world as it is to a world where everyone earns the average.
 
-Live : https://wealth.alexandremace.fr
+Live : https://wealth-repartition-simulator.vercel.app
 
 Built in 2019, one of my first projects. Brought back to life in 2026 without
 changing what it is : same map drawn by hand, same single slider, same colours.
