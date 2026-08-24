@@ -58,7 +58,7 @@ export function Onboarding({
           </li>
         </ul>
 
-        <Button size="lg" onPress={onStart}>
+        <Button size="lg" onClick={onStart}>
           See the map
         </Button>
       </div>

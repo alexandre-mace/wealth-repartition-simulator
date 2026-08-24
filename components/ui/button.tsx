@@ -1,13 +1,6 @@
-"use client"
-
-import type * as React from "react"
+import * as React from "react"
+import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
-import {
-  Button as ButtonPrimitive,
-  Link as LinkPrimitive,
-  type ButtonProps as ButtonPrimitiveProps,
-  type LinkProps as LinkPrimitiveProps,
-} from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 
@@ -18,9 +11,9 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/80",
         outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+          "border-border bg-card hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklab,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
           "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
         destructive:
@@ -53,16 +46,10 @@ function Button({
   variant = "default",
   size = "default",
   ...props
-}: Omit<ButtonPrimitiveProps, "className"> &
-  React.RefAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants> & {
-    className?: string
-  }) {
+}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
     <ButtonPrimitive
       data-slot="button"
-      data-variant={variant}
-      data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
@@ -71,19 +58,14 @@ function Button({
 
 function LinkButton({
   className,
-  variant = "default",
-  size = "default",
+  variant,
+  size,
   ...props
-}: Omit<LinkPrimitiveProps, "className"> &
-  VariantProps<typeof buttonVariants> & {
-    className?: string
-  }) {
+}: React.ComponentProps<"a"> & VariantProps<typeof buttonVariants>) {
   return (
-    <LinkPrimitive
+    <a
       data-slot="button"
-      data-variant={variant}
-      data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     />
   )

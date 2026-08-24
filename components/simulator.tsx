@@ -86,8 +86,8 @@ export function Simulator({
               Step
             </span>
             <Switch
-              isSelected={modeProgressif}
-              onChange={setModeProgressif}
+              checked={modeProgressif}
+              onCheckedChange={setModeProgressif}
               aria-label="Progressive colour scale"
             />
             <span className={modeProgressif ? "text-foreground" : undefined}>
@@ -119,9 +119,10 @@ export function Simulator({
         </span>
 
         <div className="relative pt-8">
-          {/* La bulle de valeur au-dessus du pouce, comme en 2019. React Aria
-              pose le pouce à `left: X%` avec translateX(-50%), donc son centre
-              tombe pile sur X% : la bulle suit la même règle, sans correction. */}
+          {/* La bulle de valeur au-dessus du pouce, comme en 2019. Avec
+              thumbAlignment="center" (passé au Slider ci-dessous), Base UI
+              pose le centre du pouce pile sur X% : la bulle suit la même
+              règle, sans correction. */}
           <span
             aria-hidden="true"
             className="absolute top-0 grid size-7 -translate-x-1/2 place-items-center rounded-full bg-primary text-xs font-medium text-primary-foreground after:absolute after:top-full after:left-1/2 after:-mt-0.5 after:-ml-1 after:border-4 after:border-transparent after:border-t-primary"
@@ -132,16 +133,20 @@ export function Simulator({
 
           <Slider
             /* Deux écarts au stock, assumés ici plutôt que dans le composant :
-               le rail est éclairci parce que le bg-muted d'origine suppose un
+               le rail est éclairci parce que le fond du composant suppose un
                fond clair et disparaît sur l'ardoise, et il est épaissi parce
-               que ce curseur est la seule commande de l'outil. */
+               que ce curseur est la seule commande de l'outil. Le h-3 du rail
+               écrase le h-1.5 horizontal du composant, d'où le `!`. */
             className="[&_[data-slot=slider-thumb]]:size-6 [&_[data-slot=slider-thumb]]:border-2 [&_[data-slot=slider-track]]:h-3! [&_[data-slot=slider-track]]:bg-white/25"
             aria-label="Wealth repartition"
             value={pourcentage}
-            onChange={(v) => setPourcentage(v as number)}
-            minValue={0}
-            maxValue={100}
+            onValueChange={(v) => setPourcentage(v as number)}
+            min={0}
+            max={100}
             step={1}
+            /* Aligne le centre du pouce sur X% du rail (comme React Aria),
+               pour que la bulle en `left: X%` reste calée dessus. */
+            thumbAlignment="center"
           />
         </div>
 

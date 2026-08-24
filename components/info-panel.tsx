@@ -1,7 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Popover, PopoverTrigger } from "@/components/ui/popover"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import {
   Table,
   TableBody,
@@ -37,30 +41,37 @@ export function InfoPanel({ part }: { part: number }) {
   const pauvres = populationAFaibleRevenu(part)
 
   return (
-    <PopoverTrigger>
-      <Button size="lg" variant="outline">
+    <Popover>
+      <PopoverTrigger render={<Button size="lg" variant="outline" />}>
         Extra info
-      </Button>
+      </PopoverTrigger>
 
-      <Popover
-        placement="bottom end"
+      <PopoverContent
+        side="bottom"
+        align="end"
         className="max-h-[70dvh] w-[min(26rem,calc(100vw-2rem))] gap-0 overflow-y-auto p-0"
       >
         <Table aria-label="World income figures" className="px-1.5">
           <TableHeader>
-            <TableHead isRowHeader>Type</TableHead>
-            <TableHead className="text-right">Country</TableHead>
-            <TableHead className="text-right">Income per capita</TableHead>
+            <TableRow>
+              <TableHead scope="col">Type</TableHead>
+              <TableHead scope="col" className="text-right">
+                Country
+              </TableHead>
+              <TableHead scope="col" className="text-right">
+                Income per capita
+              </TableHead>
+            </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow id="average">
+            <TableRow>
               <TableCell>Average</TableCell>
               <TableCell className="text-right">World</TableCell>
               <TableCell className="text-right">
                 {dollars.format(revenuMoyenMondial)}
               </TableCell>
             </TableRow>
-            <TableRow id="lowest">
+            <TableRow>
               <TableCell>Lowest</TableCell>
               <TableCell className="text-right">
                 {paysLePlusPauvre.nom}
@@ -69,7 +80,7 @@ export function InfoPanel({ part }: { part: number }) {
                 {dollars.format(paysLePlusPauvre.income)}
               </TableCell>
             </TableRow>
-            <TableRow id="highest">
+            <TableRow>
               <TableCell>Highest</TableCell>
               <TableCell className="text-right">
                 {paysLePlusRiche.nom}
@@ -78,7 +89,7 @@ export function InfoPanel({ part }: { part: number }) {
                 {dollars.format(paysLePlusRiche.income)}
               </TableCell>
             </TableRow>
-            <TableRow id="poor">
+            <TableRow>
               <TableCell>In low income countries</TableCell>
               <TableCell className="text-right">
                 {part === 0 ? "today" : `at ${Math.round(part * 100)}%`}
@@ -156,7 +167,7 @@ export function InfoPanel({ part }: { part: number }) {
             figure and stay grey.
           </p>
         </div>
-      </Popover>
-    </PopoverTrigger>
+      </PopoverContent>
+    </Popover>
   )
 }
