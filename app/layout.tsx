@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://wealth-repartition-simulator.vercel.app"),
   title: titre,
   description,
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' style='dominant-baseline:central;text-anchor:middle;font-size:90px;'>🌍</text></svg>",
+  },
   openGraph: {
     type: "website",
     title: titre,
