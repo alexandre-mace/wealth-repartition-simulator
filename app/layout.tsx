@@ -14,7 +14,7 @@ const description =
   "What would happen if every income on Earth were shared equally? Move one slider and watch the world map change."
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wealth-repartition-simulator.vercel.app"),
+  metadataBase: new URL("https://wealth.alexandremace.fr"),
   title: titre,
   description,
   icons: {
